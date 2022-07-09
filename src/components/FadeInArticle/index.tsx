@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default styled.article(({
-  direction, duration, from, to,
+  direction, duration = 1.5, from = '-20%', to = '0',
 }: Props) => ({
   position: 'absolute',
   animation: `${fadeInAnimation(direction, from, to)} ${duration}s ease-out 1`,

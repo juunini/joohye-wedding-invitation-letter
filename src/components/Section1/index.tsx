@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
+
 import image from './section1.jpg';
 import Title from './Title';
-import SaveTheDate from '../SaveTheDate';
 import Name from './Name';
 import Date from './Date';
 import Address from './Address';
+import SaveTheDate from '../SaveTheDate';
 
 interface Props {
   title?: {

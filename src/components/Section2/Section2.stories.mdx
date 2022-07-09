@@ -1,0 +1,17 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+
+import TopLeftFadeIn from './TopLeftFadeIn';
+
+<Meta title="Components/Section2" />
+
+<Canvas>
+  <Story name="TopLeftFadeIn (720px)">
+    <TopLeftFadeIn getClientWidth={() => 720} />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="TopLeftFadeIn (375px)">
+    <TopLeftFadeIn getClientWidth={() => 375} />
+  </Story>
+</Canvas>
