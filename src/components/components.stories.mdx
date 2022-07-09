@@ -2,7 +2,7 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
 
 import SaveTheDate from './SaveTheDate';
 import FadeInArticle from './FadeInArticle';
-import { Title, SubTitle, TextType1, TextType2 } from './Texts';
+import { Title, SubTitle, OutlineText, TextType1, TextType2 } from './Texts';
 import { CopyButton } from './Buttons';
 import Ball from './Ball';
 
@@ -83,6 +83,14 @@ import Ball from './Ball';
 <Canvas>
   <Story name="SubTitle">
     <SubTitle>this is Subtitle text</SubTitle>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="OutlineText">
+    <Title>
+      <OutlineText>this is Outline Text</OutlineText>
+    </Title>
   </Story>
 </Canvas>
 

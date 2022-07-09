@@ -1,4 +1,5 @@
 import { styled, Typography } from '@mui/material';
+import emotion from '@emotion/styled';
 
 interface TextType1Props {
   top?: string;
@@ -72,4 +73,17 @@ export const SubTitle = styled(Typography)(({
   fontSize,
   fontWeight,
   whiteSpace: 'nowrap',
+}));
+
+interface OutlineTextProps {
+  color?: string;
+  outlineColor?: string;
+}
+
+export const OutlineText = emotion.span(({
+  color = '#FFF',
+  outlineColor = '#000',
+}: OutlineTextProps) => ({
+  color,
+  textShadow: `-1px -1px 0 ${outlineColor}, 1px -1px 0 ${outlineColor}, -1px 1px 0 ${outlineColor}, 1px 1px 0 ${outlineColor}`,
 }));
