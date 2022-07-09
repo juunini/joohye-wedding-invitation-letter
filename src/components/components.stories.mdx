@@ -2,7 +2,7 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
 
 import SaveTheDate from './SaveTheDate';
 import FadeInArticle from './FadeInArticle';
-import { TextType1, TextType2 } from './Texts';
+import { Title, SubTitle, TextType1, TextType2 } from './Texts';
 
 <Meta title="Components" />
 
@@ -69,6 +69,18 @@ import { TextType1, TextType2 } from './Texts';
         </FadeInArticle>
       )
     }
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Title">
+    <Title>this is title text</Title>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="SubTitle">
+    <SubTitle>this is Subtitle text</SubTitle>
   </Story>
 </Canvas>
 
