@@ -9,6 +9,10 @@ interface Props {
   radius?: number;
   fontSize?: string;
   letterSpacing?: string;
+  top?: string;
+  left?: string;
+  right?: string;
+  bottom?: string;
 }
 
 export default function SaveTheDate({
@@ -16,9 +20,24 @@ export default function SaveTheDate({
   radius = 80,
   fontSize = '16px',
   letterSpacing = '10.5px',
+  top,
+  left,
+  right,
+  bottom,
 }: Props): JSX.Element {
   return (
-    <Svg duration={duration} size={radius * 2}>
+    <Svg
+      duration={duration}
+      size={radius * 2}
+      style={{
+        position: 'absolute',
+        zIndex: 2,
+        top,
+        left,
+        right,
+        bottom,
+      }}
+    >
       <Path cx={radius} cy={radius} radius={radius} />
       <Text fontSize={fontSize} letterSpacing={letterSpacing}>{message}</Text>
     </Svg>
