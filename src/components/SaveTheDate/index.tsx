@@ -13,6 +13,7 @@ interface Props {
   left?: string;
   right?: string;
   bottom?: string;
+  zoom?: number;
 }
 
 export default function SaveTheDate({
@@ -24,6 +25,7 @@ export default function SaveTheDate({
   left,
   right,
   bottom,
+  zoom = 1,
 }: Props): JSX.Element {
   return (
     <Svg
@@ -36,6 +38,7 @@ export default function SaveTheDate({
         left,
         right,
         bottom,
+        zoom,
       }}
     >
       <Path cx={radius} cy={radius} radius={radius} />
