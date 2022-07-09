@@ -7,7 +7,7 @@ interface Props {
 export default function Text({ fontSize, letterSpacing, children }: Props): JSX.Element {
   return (
     <text style={{ letterSpacing, fontSize, fontFamily: 'Montserrat' }}>
-      <textPath alignmentBaseline="before-edge" xlinkHref="#path">
+      <textPath alignmentBaseline="after-edge" xlinkHref="#path">
         {children}
       </textPath>
     </text>

@@ -14,12 +14,12 @@ interface Props {
 export default function SaveTheDate({
   duration = 10,
   radius = 80,
-  fontSize = '18px',
-  letterSpacing = '4.4px',
+  fontSize = '16px',
+  letterSpacing = '10.5px',
 }: Props): JSX.Element {
   return (
     <Svg duration={duration} size={radius * 2}>
-      <Path cx={radius} cy={radius} radius={radius - 20} />
+      <Path cx={radius} cy={radius} radius={radius} />
       <Text fontSize={fontSize} letterSpacing={letterSpacing}>{message}</Text>
     </Svg>
   );
