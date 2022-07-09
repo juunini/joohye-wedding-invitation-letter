@@ -4,7 +4,7 @@ import FadeInArticle from '../FadeInArticle';
 import SaveTheDate from '../SaveTheDate';
 import Section from './Section';
 import MockImage from './MockImage';
-import Text from './Text';
+import { TextType1, TextType2 } from '../Texts';
 
 interface Props {
   getClientWidth: () => number;
@@ -52,7 +52,7 @@ export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
           image
         </MockImage>
 
-        <Text
+        <TextType1
           top={`${top}px`}
           left={`${left}px`}
           fontSize={`${fontSize}px`}
@@ -60,15 +60,13 @@ export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
         >
           CONCEPT 1 -
           {' '}
-          <span
-            style={{
-              fontSize: `${(fontSize * 16) / 20}px`,
-              letterSpacing: `${letterSpacing}px`,
-            }}
+          <TextType2
+            fontSize={`${(fontSize * 16) / 20}px`}
+            letterSpacing={`${letterSpacing}px`}
           >
             Graceful
-          </span>
-        </Text>
+          </TextType2>
+        </TextType1>
       </FadeInArticle>
 
       <SaveTheDate zoom={zoom} bottom="-80px" right="-80px" />

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import FadeInArticle from '../FadeInArticle';
 import Section from './Section';
 import MockImage from './MockImage';
-import Text from './Text';
+import { TextType1 } from '../Texts';
 
 interface Props {
   getClientWidth: () => number;
@@ -47,7 +47,7 @@ export default function BottomRightFadeIn({ getClientWidth }: Props): JSX.Elemen
           image
         </MockImage>
 
-        <Text
+        <TextType1
           top={`${top}px`}
           right={`${right}px`}
           fontSize={`${fontSize}px`}
@@ -57,7 +57,7 @@ export default function BottomRightFadeIn({ getClientWidth }: Props): JSX.Elemen
           Requesst the honor of your presence
           <br />
           at the celebration of our union
-        </Text>
+        </TextType1>
       </FadeInArticle>
     </Section>
   );
