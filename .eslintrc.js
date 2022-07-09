@@ -3,6 +3,9 @@ module.exports = {
     browser: true,
     es2021: true,
   },
+  globals: {
+    naver: 'readonly',
+  },
   extends: [
     'plugin:react/recommended',
     'airbnb',

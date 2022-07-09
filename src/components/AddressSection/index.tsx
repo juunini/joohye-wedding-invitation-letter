@@ -42,6 +42,33 @@ export default function AddressSection(): JSX.Element {
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', () => handleResize());
+
+    // @ts-ignore
+    const position = new naver.maps.LatLng(37.5240721, 126.8754808);
+
+    // @ts-ignore
+    // eslint-disable-next-line no-new
+    const map = new naver.maps.Map('map', {
+      // @ts-ignore
+      center: position,
+      zoom: 19,
+    });
+
+    // @ts-ignore
+    // eslint-disable-next-line no-new
+    const marker = new naver.maps.Marker({
+      // @ts-ignore
+      position,
+      title: '로프트가든344',
+      map,
+    });
+
+    // @ts-ignore
+    const markerMessage = new naver.maps.InfoWindow({
+      content: '<div style="padding: 10px;">로프트가든344</div>',
+    });
+
+    markerMessage.open(map, marker);
   }, []);
 
   return (
@@ -62,7 +89,7 @@ export default function AddressSection(): JSX.Element {
         </CopyButton>
       </Title>
 
-      <div style={{ marginBottom: `${resize * 50}px` }}>지도</div>
+      <div id="map" style={{ marginBottom: `${resize * 50}px`, height: `${resize * 350}px` }}>지도</div>
 
       <H4 fontSize={`${resize * 26}px`} marginBottom={`${resize * 10}px`}>
         지하철
