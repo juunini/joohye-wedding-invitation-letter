@@ -47,13 +47,24 @@ export const TextType2 = styled(Typography)(({
 
 interface TextType3Props {
   fontSize?: string;
-  letterSpacing?: string;
 }
 
 export const TextType3 = styled(Typography)(({
   fontSize = '26px',
 }: TextType3Props) => ({
   fontFamily: 'Noto Sans KR',
+  fontSize,
+  whiteSpace: 'nowrap',
+}));
+
+interface TextType4Props {
+  fontSize?: string;
+}
+
+export const TextType4 = styled(Typography)(({
+  fontSize = '26px',
+}: TextType4Props) => ({
+  fontFamily: 'Montserrat',
   fontSize,
   whiteSpace: 'nowrap',
 }));
