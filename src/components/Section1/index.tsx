@@ -6,6 +6,7 @@ import Name from './Name';
 import Date from './Date';
 import Address from './Address';
 import SaveTheDate from '../SaveTheDate';
+import Section from '../Section';
 
 interface Props {
   title?: {
@@ -72,14 +73,7 @@ export default function Section1({
   }, []);
 
   return (
-    <section
-      ref={ref}
-      style={{
-        position: 'relative',
-        maxWidth: '720px',
-        margin: 'auto',
-      }}
-    >
+    <Section ref={ref}>
       <SaveTheDate top="40px" right="40px" zoom={zoom} />
 
       <Title
@@ -145,6 +139,6 @@ export default function Section1({
       >
         로프트가든344
       </Address>
-    </section>
+    </Section>
   );
 }

@@ -2,22 +2,15 @@ import { useRef } from 'react';
 
 import TopLeftFadeIn from './TopLeftFadeIn';
 import BottomRightFadeIn from './BottomRightFadeIn';
+import Section from '../Section';
 
 export default function Section2(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
   return (
-    <section
-      ref={ref}
-      style={{
-        position: 'relative',
-        width: '100%',
-        maxWidth: '720px',
-        margin: 'auto',
-      }}
-    >
+    <Section ref={ref}>
       <TopLeftFadeIn getClientWidth={() => (ref.current?.clientWidth || 720)} />
       <BottomRightFadeIn getClientWidth={() => (ref.current?.clientWidth || 720)} />
-    </section>
+    </Section>
   );
 }

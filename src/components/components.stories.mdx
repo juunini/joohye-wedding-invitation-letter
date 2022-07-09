@@ -3,6 +3,8 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import SaveTheDate from './SaveTheDate';
 import FadeInArticle from './FadeInArticle';
 import { Title, SubTitle, TextType1, TextType2 } from './Texts';
+import { CopyButton } from './Buttons';
+import Ball from './Ball';
 
 <Meta title="Components" />
 
@@ -93,5 +95,17 @@ import { Title, SubTitle, TextType1, TextType2 } from './Texts';
 <Canvas>
   <Story name="TextType2">
     <TextType2>this is text type 2</TextType2>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Ball">
+    <Ball color="red" />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="CopyButton">
+    <CopyButton>Copy</CopyButton>
   </Story>
 </Canvas>

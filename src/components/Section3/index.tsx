@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+
 import FadeInArticle from '../FadeInArticle';
 import SaveTheDate from '../SaveTheDate';
+import Section from '../Section';
 import {
   Title, TextType1, TextType2, SubTitle,
 } from '../Texts';
@@ -18,15 +20,9 @@ export default function Section3(): JSX.Element {
   }, []);
 
   return (
-    <section
+    <Section
       ref={ref}
-      style={{
-        position: 'relative',
-        width: '100%',
-        maxWidth: '720px',
-        margin: 'auto',
-        textAlign: 'center',
-      }}
+      style={{ textAlign: 'center' }}
     >
       <Title fontSize={`${resize * 94}px`}>Since 2010</Title>
       <SubTitle fontSize={`${resize * 26}px`} style={{ marginBottom: `${resize * 160}px` }}>
@@ -88,7 +84,6 @@ export default function Section3(): JSX.Element {
 
         <SaveTheDate zoom={resize} bottom="-80px" right="-80px" />
       </div>
-
-    </section>
+    </Section>
   );
 }
