@@ -1,6 +1,7 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
 
 import SaveTheDate from './SaveTheDate';
+import FadeInArticle from './FadeInArticle';
 
 <Meta title="Components" />
 
@@ -27,6 +28,44 @@ import SaveTheDate from './SaveTheDate';
           fontSize={`${fontSize}px`}
           letterSpacing={`${letterSpacing}px`}
         />
+      )
+    }
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="FadeInArticle"
+    argTypes={{
+      duration: { control: 'number', defaultValue: 1.5 },
+      from: { control: 'text', defaultValue: '-20%' },
+      to: { control: 'text', defaultValue: '0' },
+      direction: {
+        control: { type: 'select'},
+         options: ['top', 'bottom', 'left', 'right'],
+        defaultValue: 'left',
+      },
+    }}
+  >
+    {
+      ({ duration, direction, from, to }) => (
+        <FadeInArticle
+          direction={direction}
+          duration={duration}
+          from={from}
+          to={to}
+        >
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          <br />
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          <br />
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          <br />
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          <br />
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          <br />
+        </FadeInArticle>
       )
     }
   </Story>
