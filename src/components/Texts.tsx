@@ -45,6 +45,19 @@ export const TextType2 = styled(Typography)(({
   whiteSpace: 'nowrap',
 }));
 
+interface TextType3Props {
+  fontSize?: string;
+  letterSpacing?: string;
+}
+
+export const TextType3 = styled(Typography)(({
+  fontSize = '26px',
+}: TextType3Props) => ({
+  fontFamily: 'Noto Sans KR',
+  fontSize,
+  whiteSpace: 'nowrap',
+}));
+
 interface TitleProps {
   fontSize?: string;
   fontWeight?: number;
