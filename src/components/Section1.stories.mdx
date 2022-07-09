@@ -5,95 +5,64 @@ import Title from './Section1/Title';
 import Name from './Section1/Name';
 import Date from './Section1/Date';
 import Address from './Section1/Address';
+//
+const DefaultValues = {
+  'title.lineHeight': { control: 'number', defaultValue: 0.9 },
+  'title.fontSize': { control: 'number', defaultValue: 90 },
+  'title.fontWeight': { control: 'number', defaultValue: 500 },
+  'name.fontSize': { control: 'number', defaultValue: 20 },
+  'name.fontWeight': { control: 'number', defaultValue: 500 },
+  'date.letterSpacing': { control: 'number', defaultValue: 1.4 },
+  'date.fontSize': { control: 'number', defaultValue: 28 },
+  'date.fontWeight': { control: 'number', defaultValue: 500 },
+  'address.letterSpacing': { control: 'number', defaultValue: 1.4 },
+  'address.fontSize': { control: 'number', defaultValue: 28 },
+  'address.fontWeight': { control: 'number', defaultValue: 300 },
+}
+const renderSection1 = (props) => (
+  <Section1
+    title={{
+      lineHeight: props['title.lineHeight'],
+      fontSize: props['title.fontSize'],
+      fontWeight: props['title.fontWeight'],
+    }}
+    name={{
+      fontSize: props['name.fontSize'],
+      fontWeight: props['name.fontWeight'],
+    }}
+    date={{
+      letterSpacing: props['date.letterSpacing'],
+      fontSize: props['date.fontSize'],
+      fontWeight: props['date.fontWeight'],
+    }}
+    address={{
+      letterSpacing: props['address.letterSpacing'],
+      fontSize: props['address.fontSize'],
+      fontWeight: props['address.fontWeight'],
+    }}
+  />
+);
 
 <Meta title="Components/Section1" />
 
 <Canvas>
   <Story
     name="Section1"
-    argTypes={{
-      'title.lineHeight': { control: 'number', defaultValue: 0.9 },
-      'title.fontSize': { control: 'number', defaultValue: 90 },
-      'title.fontWeight': { control: 'number', defaultValue: 500 },
-      'name.fontSize': { control: 'number', defaultValue: 20 },
-      'name.fontWeight': { control: 'number', defaultValue: 500 },
-      'date.letterSpacing': { control: 'number', defaultValue: 1.4 },
-      'date.fontSize': { control: 'number', defaultValue: 28 },
-      'date.fontWeight': { control: 'number', defaultValue: 500 },
-      'address.letterSpacing': { control: 'number', defaultValue: 1.4 },
-      'address.fontSize': { control: 'number', defaultValue: 28 },
-      'address.fontWeight': { control: 'number', defaultValue: 300 },
-    }}
+    argTypes={DefaultValues}
   >
-    {
-      (props) => (
-        <Section1
-          title={{
-            lineHeight: props['title.lineHeight'],
-            fontSize: props['title.fontSize'],
-            fontWeight: props['title.fontWeight'],
-          }}
-          name={{
-            fontSize: props['name.fontSize'],
-            fontWeight: props['name.fontWeight'],
-          }}
-          date={{
-            letterSpacing: props['date.letterSpacing'],
-            fontSize: props['date.fontSize'],
-            fontWeight: props['date.fontWeight'],
-          }}
-          address={{
-            letterSpacing: props['address.letterSpacing'],
-            fontSize: props['address.fontSize'],
-            fontWeight: props['address.fontWeight'],
-          }}
-        />
-      )
-    }
+    {renderSection1}
   </Story>
 </Canvas>
 
 <Canvas>
   <Story
     name="Section1 (1200px)"
-    argTypes={{
-      'title.lineHeight': { control: 'number', defaultValue: 0.9 },
-      'title.fontSize': { control: 'number', defaultValue: 90 },
-      'title.fontWeight': { control: 'number', defaultValue: 500 },
-      'name.fontSize': { control: 'number', defaultValue: 20 },
-      'name.fontWeight': { control: 'number', defaultValue: 500 },
-      'date.letterSpacing': { control: 'number', defaultValue: 1.4 },
-      'date.fontSize': { control: 'number', defaultValue: 28 },
-      'date.fontWeight': { control: 'number', defaultValue: 500 },
-      'address.letterSpacing': { control: 'number', defaultValue: 1.4 },
-      'address.fontSize': { control: 'number', defaultValue: 28 },
-      'address.fontWeight': { control: 'number', defaultValue: 300 },
-    }}
+    argTypes={DefaultValues}
   >
     {
       (props) => (
         <div style={{ width: '1200px', margin: 'auto', border: '1px solid black' }}>
-          <Section1
-            title={{
-              lineHeight: props['title.lineHeight'],
-              fontSize: props['title.fontSize'],
-              fontWeight: props['title.fontWeight'],
-            }}
-            name={{
-              fontSize: props['name.fontSize'],
-              fontWeight: props['name.fontWeight'],
-            }}
-            date={{
-              letterSpacing: props['date.letterSpacing'],
-              fontSize: props['date.fontSize'],
-              fontWeight: props['date.fontWeight'],
-            }}
-            address={{
-              letterSpacing: props['address.letterSpacing'],
-              fontSize: props['address.fontSize'],
-              fontWeight: props['address.fontWeight'],
-            }}
-          />
+          {renderSection1(props)}
         </div>
       )
     }
@@ -103,44 +72,12 @@ import Address from './Section1/Address';
 <Canvas>
   <Story
     name="Section1 (375 x 667)"
-    argTypes={{
-      'title.lineHeight': { control: 'number', defaultValue: 0.9 },
-      'title.fontSize': { control: 'number', defaultValue: 90 },
-      'title.fontWeight': { control: 'number', defaultValue: 500 },
-      'name.fontSize': { control: 'number', defaultValue: 20 },
-      'name.fontWeight': { control: 'number', defaultValue: 500 },
-      'date.letterSpacing': { control: 'number', defaultValue: 1.4 },
-      'date.fontSize': { control: 'number', defaultValue: 28 },
-      'date.fontWeight': { control: 'number', defaultValue: 500 },
-      'address.letterSpacing': { control: 'number', defaultValue: 1.4 },
-      'address.fontSize': { control: 'number', defaultValue: 28 },
-      'address.fontWeight': { control: 'number', defaultValue: 300 },
-    }}
+    argTypes={DefaultValues}
   >
     {
       (props) => (
         <div style={{ overflow: 'hidden', width: '375px', height: '667px', margin: 'auto', border: '1px solid black' }}>
-          <Section1
-            title={{
-              lineHeight: props['title.lineHeight'],
-              fontSize: props['title.fontSize'],
-              fontWeight: props['title.fontWeight'],
-            }}
-            name={{
-              fontSize: props['name.fontSize'],
-              fontWeight: props['name.fontWeight'],
-            }}
-            date={{
-              letterSpacing: props['date.letterSpacing'],
-              fontSize: props['date.fontSize'],
-              fontWeight: props['date.fontWeight'],
-            }}
-            address={{
-              letterSpacing: props['address.letterSpacing'],
-              fontSize: props['address.fontSize'],
-              fontWeight: props['address.fontWeight'],
-            }}
-          />
+          {renderSection1(props)}
         </div>
       )
     }

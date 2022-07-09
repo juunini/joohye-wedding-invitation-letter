@@ -7,29 +7,47 @@ import Date from './Date';
 import Address from './Address';
 
 interface Props {
-  title: {
+  title?: {
     lineHeight: number;
     fontSize: number;
     fontWeight: number;
   };
-  name: {
+  name?: {
     fontSize: number;
     fontWeight: number;
   };
-  date: {
+  date?: {
     fontSize: number;
     fontWeight: number;
-    letterSpacing: string;
+    letterSpacing: number;
   };
-  address: {
+  address?: {
     fontSize: number;
     fontWeight: number;
-    letterSpacing: string;
+    letterSpacing: number;
   };
 }
 
 export default function Section1({
-  title, name, date, address,
+  title = {
+    lineHeight: 0.9,
+    fontSize: 90,
+    fontWeight: 500,
+  },
+  name = {
+    fontSize: 20,
+    fontWeight: 500,
+  },
+  date = {
+    letterSpacing: 1.4,
+    fontSize: 28,
+    fontWeight: 500,
+  },
+  address = {
+    letterSpacing: 1.4,
+    fontSize: 28,
+    fontWeight: 300,
+  },
 }: Props): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
@@ -39,20 +57,17 @@ export default function Section1({
   const [addressFontSize, setAddressFontSize] = useState(`${address.fontSize}px`);
   const [zoom, setZoom] = useState(1);
 
-  useEffect(() => {
+  function handleResize(): void {
     setTitleFontSize(`${(title.fontSize / 720) * ref.current!.clientWidth}px`);
     setNameFontSize(`${(name.fontSize / 720) * ref.current!.clientWidth}px`);
     setDateFontSize(`${(date.fontSize / 720) * ref.current!.clientWidth}px`);
     setAddressFontSize(`${(address.fontSize / 720) * ref.current!.clientWidth}px`);
     setZoom(ref.current!.clientWidth / 720);
+  }
 
-    window.addEventListener('resize', () => {
-      setTitleFontSize(`${(title.fontSize / 720) * ref.current!.clientWidth}px`);
-      setNameFontSize(`${(name.fontSize / 720) * ref.current!.clientWidth}px`);
-      setDateFontSize(`${(date.fontSize / 720) * ref.current!.clientWidth}px`);
-      setAddressFontSize(`${(address.fontSize / 720) * ref.current!.clientWidth}px`);
-      setZoom(ref.current!.clientWidth / 720);
-    });
+  useEffect(() => {
+    handleResize();
+    window.addEventListener('resize', () => handleResize());
   }, []);
 
   return (

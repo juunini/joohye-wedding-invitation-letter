@@ -1,9 +1,9 @@
 import { styled, Typography } from '@mui/material';
 
 interface Props {
-  letterSpacing: string;
   fontSize: string;
   fontWeight: number;
+  letterSpacing: number;
 }
 
 export default styled(Typography)(({ letterSpacing, fontSize, fontWeight }: Props) => ({
