@@ -8,11 +8,12 @@ const Rotation = keyframes({
 
 interface Props {
   duration: number;
+  size: number;
 }
 
-const Svg = styled.svg(({ duration }: Props) => ({
-  width: '160px',
-  height: '160px',
+const Svg = styled.svg(({ duration, size }: Props) => ({
+  width: `${size}px`,
+  height: `${size}px`,
   animation: `${Rotation} ${duration}s linear infinite`,
 }));
 

@@ -18,7 +18,7 @@ export default function SaveTheDate({
   letterSpacing = '4.4px',
 }: Props): JSX.Element {
   return (
-    <Svg duration={duration}>
+    <Svg duration={duration} size={radius * 2}>
       <Path cx={radius} cy={radius} radius={radius - 20} />
       <Text fontSize={fontSize} letterSpacing={letterSpacing}>{message}</Text>
     </Svg>
