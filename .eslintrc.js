@@ -26,5 +26,6 @@ module.exports = {
     'react/require-default-props': 'off',
     'no-restricted-globals': 'off',
     'react/no-this-in-sfc': 'off',
+    'react/no-array-index-key': 'off',
   },
 };

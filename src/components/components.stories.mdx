@@ -1,0 +1,35 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+
+import SaveTheDate from './SaveTheDate';
+
+<Meta
+  title="Components"
+/>
+
+<Canvas>
+  <Story
+    name="SaveTheDate"
+    argTypes={{
+      duration: { control: 'number', defaultValue: 10 },
+      radius: { control: 'number', defaultValue: 80 },
+      fontSize: { control: 'number', defaultValue: 18 },
+      letterSpacing: { control: 'number', defaultValue: 4.4 },
+    }}
+  >
+    {
+      ({
+        duration,
+        radius,
+        fontSize,
+        letterSpacing,
+      }) => (
+        <SaveTheDate
+          duration={duration}
+          radius={radius}
+          fontSize={`${fontSize}px`}
+          letterSpacing={`${letterSpacing}px`}
+        />
+      )
+    }
+  </Story>
+</Canvas>
