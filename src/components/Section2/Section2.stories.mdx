@@ -1,8 +1,35 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
 
 import TopLeftFadeIn from './TopLeftFadeIn';
+import BottomRightFadeIn from './BottomRightFadeIn';
+//
+const Section2 = ({ width }) => (
+  <section
+    style={{
+      position: 'relative',
+      width: '100%',
+      maxWidth: `${width}px`,
+      margin: 'auto',
+    }}
+  >
+    <TopLeftFadeIn getClientWidth={() => width} />
+    <BottomRightFadeIn getClientWidth={() => width} />
+  </section>
+)
 
 <Meta title="Components/Section2" />
+
+<Canvas>
+  <Story name="Section2 (720px)">
+    {Section2({ width: 720 })}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Section2 (375px)">
+    {Section2({ width: 375 })}
+  </Story>
+</Canvas>
 
 <Canvas>
   <Story name="TopLeftFadeIn (720px)">
@@ -13,5 +40,17 @@ import TopLeftFadeIn from './TopLeftFadeIn';
 <Canvas>
   <Story name="TopLeftFadeIn (375px)">
     <TopLeftFadeIn getClientWidth={() => 375} />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="BottomRightFadeIn (720px)">
+    <BottomRightFadeIn getClientWidth={() => 720} />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="BottomRightFadeIn (375px)">
+    <BottomRightFadeIn getClientWidth={() => 375} />
   </Story>
 </Canvas>

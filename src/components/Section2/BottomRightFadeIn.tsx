@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 import FadeInArticle from '../FadeInArticle';
-import SaveTheDate from '../SaveTheDate';
 import Section from './Section';
 import MockImage from './MockImage';
 import Text from './Text';
@@ -10,27 +9,20 @@ interface Props {
   getClientWidth: () => number;
 }
 
-export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
-  const [zoom, setZoom] = useState<number>(1);
-  const [marginBottom, setMarginBottom] = useState<number>(160);
-  const [top, setTop] = useState<number>(105);
-  const [left, setLeft] = useState<number>(380);
+export default function BottomRightFadeIn({ getClientWidth }: Props): JSX.Element {
+  const [top, setTop] = useState<number>(140);
+  const [right, setRight] = useState<number>(340);
   const [width, setWidth] = useState<number>(450);
   const [height, setHeight] = useState<number>(560);
   const [fontSize, setFontSize] = useState<number>(20);
-  const [letterSpacing, setLetterSpacing] = useState<number>(5);
 
   function handleResize(): void {
     const clientWidth = getClientWidth();
-
-    setMarginBottom((160 * clientWidth) / 720);
-    setZoom(clientWidth / 720);
-    setTop((105 * clientWidth) / 720);
-    setLeft((380 * clientWidth) / 720);
+    setTop((140 * clientWidth) / 720);
+    setRight((340 * clientWidth) / 720);
     setWidth((450 * clientWidth) / 720);
     setHeight((560 * clientWidth) / 720);
     setFontSize((20 * clientWidth) / 720);
-    setLetterSpacing((5 * clientWidth) / 720);
   }
 
   useEffect(() => {
@@ -42,9 +34,12 @@ export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
     <Section
       width={width}
       height={height}
-      marginBottom={marginBottom}
+      marginBottom={0}
+      style={{
+        marginLeft: 'auto',
+      }}
     >
-      <FadeInArticle direction="left">
+      <FadeInArticle direction="right">
         <MockImage
           width={`${width}px`}
           height={`${height}px`}
@@ -54,24 +49,16 @@ export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
 
         <Text
           top={`${top}px`}
-          left={`${left}px`}
+          right={`${right}px`}
           fontSize={`${fontSize}px`}
-          rotate={90}
+          rotate={-90}
+          style={{ textAlign: 'right' }}
         >
-          CONCEPT 1 -
-          {' '}
-          <span
-            style={{
-              fontSize: `${(fontSize * 16) / 20}px`,
-              letterSpacing: `${letterSpacing}px`,
-            }}
-          >
-            Graceful
-          </span>
+          Requesst the honor of your presence
+          <br />
+          at the celebration of our union
         </Text>
       </FadeInArticle>
-
-      <SaveTheDate zoom={zoom} bottom="-80px" right="-80px" />
     </Section>
   );
 }
