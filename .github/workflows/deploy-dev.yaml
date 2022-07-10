@@ -1,0 +1,32 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Install and Build
+        uses: actions/setup-node@v2
+      - run: yarn
+      - run: yarn build --base=/joohye-wedding-invitation-letter
+        env:
+          CI: true
+          DEPLOY_TARGET: gh-pages
+          VITE_BASENAME: https://juunini.github.io/joohye-wedding-invitation-letter
+      - run: touch dist/.nojekyll
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: dist
+          clean: true
