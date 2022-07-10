@@ -102,12 +102,14 @@ export const SubTitle = styled(Typography)(({
 interface OutlineTextProps {
   color?: string;
   outlineColor?: string;
+  outlineWidth?: string;
 }
 
 export const OutlineText = emotion.span(({
   color = '#FFF',
   outlineColor = '#6b6b6b',
+  outlineWidth = '0.5px',
 }: OutlineTextProps) => ({
   color,
-  textShadow: `-1px -1px 0 ${outlineColor}, 1px -1px 0 ${outlineColor}, -1px 1px 0 ${outlineColor}, 1px 1px 0 ${outlineColor}`,
+  textShadow: `-${outlineWidth} -${outlineWidth} 0 ${outlineColor}, ${outlineWidth} -${outlineWidth} 0 ${outlineColor}, -${outlineWidth} ${outlineWidth} 0 ${outlineColor}, ${outlineWidth} ${outlineWidth} 0 ${outlineColor}`,
 }));
