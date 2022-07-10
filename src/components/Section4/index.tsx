@@ -41,6 +41,7 @@ export default function Section4(): JSX.Element {
       <div
         style={{
           position: 'relative',
+          marginRight: `${resize * 40}px`,
         }}
       >
         <img
@@ -54,7 +55,7 @@ export default function Section4(): JSX.Element {
           fontSize={`${resize * 18}px`}
           rotate={90}
           top={`${resize * 440}px`}
-          left={`${resize * -30}px`}
+          left={`${resize * -50}px`}
         >
           INVITE YOU TO JOIN THE CEREMONY AND
           <br />
