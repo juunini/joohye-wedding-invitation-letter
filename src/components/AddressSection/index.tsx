@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
+import { Tooltip } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import Ball from '../Ball';
 import { CopyButton } from '../Buttons';
@@ -36,6 +38,7 @@ export default function AddressSection(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
   const [resize, setResize] = useState<number>(1);
+  const [tooltipOpen, setTooltipOpen] = useState<boolean>(false);
 
   const handleResize = (): void => setResize(ref.current!.clientWidth / 720);
 
@@ -78,15 +81,26 @@ export default function AddressSection(): JSX.Element {
     >
       <Title fontSize={`${resize * 40}px`} marginBottom={`${resize * 40}px`} style={{ fontWeight: 500 }}>
         오시는 길
-        <CopyButton
-          type="button"
-          fontSize={`${resize * 24}px`}
-          padding={`${resize * 10}px ${resize * 20}px`}
-          top="0"
-          right={`${resize * 40}px`}
+        <CopyToClipboard
+          text="서울특별시 양천구 목1동 오목로 344"
+          onCopy={() => {
+            setTooltipOpen(true);
+
+            setTimeout(() => setTooltipOpen(false), 2000);
+          }}
         >
-          주소 복사
-        </CopyButton>
+          <Tooltip title="복사되었습니다." arrow open={tooltipOpen}>
+            <CopyButton
+              type="button"
+              fontSize={`${resize * 24}px`}
+              padding={`${resize * 10}px ${resize * 20}px`}
+              top="0"
+              right={`${resize * 40}px`}
+            >
+              주소 복사
+            </CopyButton>
+          </Tooltip>
+        </CopyToClipboard>
       </Title>
 
       <div id="map" style={{ marginBottom: `${resize * 50}px`, height: `${resize * 350}px` }}>지도</div>

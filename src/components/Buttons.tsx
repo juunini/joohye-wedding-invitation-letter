@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import { Button, styled } from '@mui/material';
 
 interface CopyButtonProps {
   padding?: string;
@@ -10,7 +10,7 @@ interface CopyButtonProps {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export const CopyButton = styled.button(({
+export const CopyButton = styled(Button)(({
   padding = '10px 20px',
   fontSize = '24px',
   top = 'inherit',
@@ -24,6 +24,7 @@ export const CopyButton = styled.button(({
   bottom,
   left,
   padding,
+  lineHeight: 1.5,
   fontFamily: 'Noto Sans KR',
   fontSize,
   fontWeight: 300,

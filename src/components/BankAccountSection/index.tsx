@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
+import {
+  Accordion, AccordionDetails, AccordionSummary, Tooltip,
+} from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 import Section from '../Section';
 import {
@@ -12,6 +15,10 @@ export default function BankAccountSection(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
   const [resize, setResize] = useState<number>(1);
+  const [tooltipOpen1, setTooltipOpen1] = useState<boolean>(false);
+  const [tooltipOpen2, setTooltipOpen2] = useState<boolean>(false);
+  const [tooltipOpen3, setTooltipOpen3] = useState<boolean>(false);
+  const [tooltipOpen4, setTooltipOpen4] = useState<boolean>(false);
 
   const handleResize = (): void => setResize(ref.current!.clientWidth / 720);
 
@@ -69,57 +76,60 @@ export default function BankAccountSection(): JSX.Element {
             fontSize={`${resize * 24}px`}
             fontWeight={300}
           >
-            신한은행 00-00000-000
+            신한은행 110-352-575352
             <br />
             김철수
           </TextType3>
-          <CopyButton
-            type="button"
-            fontSize={`${resize * 24}px`}
-            padding={`${resize * 10}px ${resize * 20}px`}
-            top={`${resize * 30}px`}
-            right={`${resize * 30}px`}
+          <CopyToClipboard
+            text="110-352-575352"
+            onCopy={() => {
+              setTooltipOpen1(true);
+
+              setTimeout(() => setTooltipOpen1(false), 2000);
+            }}
           >
-            복사
-          </CopyButton>
+            <Tooltip title="복사되었습니다." arrow open={tooltipOpen1}>
+              <CopyButton
+                type="button"
+                fontSize={`${resize * 24}px`}
+                padding={`${resize * 10}px ${resize * 20}px`}
+                top={`${resize * 30}px`}
+                right={`${resize * 30}px`}
+              >
+                복사
+              </CopyButton>
+            </Tooltip>
+          </CopyToClipboard>
         </AccordionDetails>
         <AccordionDetails style={{ position: 'relative', padding: `${resize * 30}px ${resize * 30}px`, borderBottom: '1px solid #e9e9e9' }}>
           <TextType3
             fontSize={`${resize * 24}px`}
             fontWeight={300}
           >
-            신한은행 00-00000-000
+            국민은행 804-01-0114-451
             <br />
             김연한
           </TextType3>
-          <CopyButton
-            type="button"
-            fontSize={`${resize * 24}px`}
-            padding={`${resize * 10}px ${resize * 20}px`}
-            top={`${resize * 30}px`}
-            right={`${resize * 30}px`}
+          <CopyToClipboard
+            text="804-01-0114-451"
+            onCopy={() => {
+              setTooltipOpen2(true);
+
+              setTimeout(() => setTooltipOpen2(false), 2000);
+            }}
           >
-            복사
-          </CopyButton>
-        </AccordionDetails>
-        <AccordionDetails style={{ position: 'relative', padding: `${resize * 30}px ${resize * 30}px` }}>
-          <TextType3
-            fontSize={`${resize * 24}px`}
-            fontWeight={300}
-          >
-            신한은행 00-00000-000
-            <br />
-            심태숙
-          </TextType3>
-          <CopyButton
-            type="button"
-            fontSize={`${resize * 24}px`}
-            padding={`${resize * 10}px ${resize * 20}px`}
-            top={`${resize * 30}px`}
-            right={`${resize * 30}px`}
-          >
-            복사
-          </CopyButton>
+            <Tooltip title="복사되었습니다." arrow open={tooltipOpen2}>
+              <CopyButton
+                type="button"
+                fontSize={`${resize * 24}px`}
+                padding={`${resize * 10}px ${resize * 20}px`}
+                top={`${resize * 30}px`}
+                right={`${resize * 30}px`}
+              >
+                복사
+              </CopyButton>
+            </Tooltip>
+          </CopyToClipboard>
         </AccordionDetails>
       </Accordion>
 
@@ -157,57 +167,60 @@ export default function BankAccountSection(): JSX.Element {
             fontSize={`${resize * 24}px`}
             fontWeight={300}
           >
-            신한은행 00-00000-000
+            우리은행 1002-831-277797
             <br />
             양주혜
           </TextType3>
-          <CopyButton
-            type="button"
-            fontSize={`${resize * 24}px`}
-            padding={`${resize * 10}px ${resize * 20}px`}
-            top={`${resize * 30}px`}
-            right={`${resize * 30}px`}
+          <CopyToClipboard
+            text="1002-831-277797"
+            onCopy={() => {
+              setTooltipOpen3(true);
+
+              setTimeout(() => setTooltipOpen3(false), 2000);
+            }}
           >
-            복사
-          </CopyButton>
+            <Tooltip title="복사되었습니다." arrow open={tooltipOpen3}>
+              <CopyButton
+                type="button"
+                fontSize={`${resize * 24}px`}
+                padding={`${resize * 10}px ${resize * 20}px`}
+                top={`${resize * 30}px`}
+                right={`${resize * 30}px`}
+              >
+                복사
+              </CopyButton>
+            </Tooltip>
+          </CopyToClipboard>
         </AccordionDetails>
         <AccordionDetails style={{ position: 'relative', padding: `${resize * 30}px ${resize * 30}px`, borderBottom: '1px solid #e9e9e9' }}>
           <TextType3
             fontSize={`${resize * 24}px`}
             fontWeight={300}
           >
-            신한은행 00-00000-000
+            신한은행 110-492-910415
             <br />
             양병록
           </TextType3>
-          <CopyButton
-            type="button"
-            fontSize={`${resize * 24}px`}
-            padding={`${resize * 10}px ${resize * 20}px`}
-            top={`${resize * 30}px`}
-            right={`${resize * 30}px`}
+          <CopyToClipboard
+            text="110-492-910415"
+            onCopy={() => {
+              setTooltipOpen4(true);
+
+              setTimeout(() => setTooltipOpen4(false), 2000);
+            }}
           >
-            복사
-          </CopyButton>
-        </AccordionDetails>
-        <AccordionDetails style={{ position: 'relative', padding: `${resize * 30}px ${resize * 30}px` }}>
-          <TextType3
-            fontSize={`${resize * 24}px`}
-            fontWeight={300}
-          >
-            신한은행 00-00000-000
-            <br />
-            전영식
-          </TextType3>
-          <CopyButton
-            type="button"
-            fontSize={`${resize * 24}px`}
-            padding={`${resize * 10}px ${resize * 20}px`}
-            top={`${resize * 30}px`}
-            right={`${resize * 30}px`}
-          >
-            복사
-          </CopyButton>
+            <Tooltip title="복사되었습니다." arrow open={tooltipOpen4}>
+              <CopyButton
+                type="button"
+                fontSize={`${resize * 24}px`}
+                padding={`${resize * 10}px ${resize * 20}px`}
+                top={`${resize * 30}px`}
+                right={`${resize * 30}px`}
+              >
+                복사
+              </CopyButton>
+            </Tooltip>
+          </CopyToClipboard>
         </AccordionDetails>
       </Accordion>
     </Section>
