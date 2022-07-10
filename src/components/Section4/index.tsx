@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import isiOS from '../../isiOS';
 import FadeInArticle from '../FadeInArticle';
 
 import Section from '../Section';
@@ -23,14 +22,13 @@ export default function Section4(): JSX.Element {
     window.addEventListener('resize', () => handleResize());
 
     const isMobileSize = window.innerWidth < 720;
-    const mobilePosition = isiOS() ? 3200 : 1500;
-    const fadeInPosition = isMobileSize ? mobilePosition : 3200;
+    const fadeInPosition = isMobileSize ? 1500 : 3200;
 
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset <= fadeInPosition) {
+      if (window.scrollY <= fadeInPosition) {
         setFadeInActive(false);
       }
-      if (window.pageYOffset > fadeInPosition) {
+      if (window.scrollY > fadeInPosition) {
         setFadeInActive(true);
       }
     });

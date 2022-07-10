@@ -6,7 +6,6 @@ import Section from './Section';
 import { TextType1, TextType2 } from '../Texts';
 
 import image from './area2_pic1.png';
-import isiOS from '../../isiOS';
 
 interface Props {
   getClientWidth: () => number;
@@ -22,14 +21,13 @@ export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
     window.addEventListener('resize', () => handleResize());
 
     const isMobileSize = window.innerWidth < 720;
-    const mobilePosition = isiOS() ? 200 : 120;
-    const fadeInPosition = isMobileSize ? mobilePosition : 200;
+    const fadeInPosition = isMobileSize ? 120 : 200;
 
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset <= fadeInPosition) {
+      if (window.scrollY <= fadeInPosition) {
         setFadeInActive(false);
       }
-      if (window.pageYOffset > fadeInPosition) {
+      if (window.scrollY > fadeInPosition) {
         setFadeInActive(true);
       }
     });

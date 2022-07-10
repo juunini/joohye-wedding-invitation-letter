@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import isiOS from '../../isiOS';
 
 import FadeInArticle from '../FadeInArticle';
 import SaveTheDate from '../SaveTheDate';
@@ -26,32 +25,29 @@ export default function Section3(): JSX.Element {
     window.addEventListener('resize', () => handleResize());
 
     const isMobileSize = window.innerWidth < 720;
-    const mobileTitlePosition = isiOS() ? 1600 : 540;
-    const fadeInTitlePosition = isMobileSize ? mobileTitlePosition : 1800;
-    const mobilePosition1 = isiOS() ? 1950 : 790;
-    const fadeInPosition1 = isMobileSize ? mobilePosition1 : 2000;
-    const mobilePosition2 = isiOS() ? 2500 : 1160;
-    const fadeInPosition2 = isMobileSize ? mobilePosition2 : 2400;
+    const fadeInTitlePosition = isMobileSize ? 540 : 1800;
+    const fadeInPosition1 = isMobileSize ? 790 : 2000;
+    const fadeInPosition2 = isMobileSize ? 1160 : 2400;
 
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset <= fadeInTitlePosition) {
+      if (window.scrollY <= fadeInTitlePosition) {
         setFadeInTitleActive(false);
       }
-      if (window.pageYOffset > fadeInTitlePosition) {
+      if (window.scrollY > fadeInTitlePosition) {
         setFadeInTitleActive(true);
       }
 
-      if (window.pageYOffset <= fadeInPosition1) {
+      if (window.scrollY <= fadeInPosition1) {
         setFadeInActive1(false);
       }
-      if (window.pageYOffset > fadeInPosition1) {
+      if (window.scrollY > fadeInPosition1) {
         setFadeInActive1(true);
       }
 
-      if (window.pageYOffset <= fadeInPosition2) {
+      if (window.scrollY <= fadeInPosition2) {
         setFadeInActive2(false);
       }
-      if (window.pageYOffset > fadeInPosition2) {
+      if (window.scrollY > fadeInPosition2) {
         setFadeInActive2(true);
       }
     });

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import isiOS from '../../isiOS';
 import FadeInArticle from '../FadeInArticle';
 
 import Section from '../Section';
@@ -17,34 +16,31 @@ export default function Section6(): JSX.Element {
   const [resize, setResize] = useState<number>(1);
   const [fadeInActive1, setFadeInActive1] = useState<boolean>(false);
   const [fadeInActive2, setFadeInActive2] = useState<boolean>(false);
-  const [isMobileSize, setIsMobileSize] = useState<boolean>(window.innerWidth < 720);
+  const [isMobileSize, setIsMobileSize] = useState<boolean>(false);
 
-  const getIsMobileSize = () => isMobileSize;
   const handleResize = (): void => setResize(ref.current!.clientWidth / 720);
 
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', () => handleResize());
 
-    const mobilePosition1 = isiOS() ? 4800 : 2350;
-    const mobilePosition2 = isiOS() ? 5400 : 2600;
-    const fadeInPosition1 = getIsMobileSize() ? mobilePosition1 : 5400;
-    const fadeInPosition2 = getIsMobileSize() ? mobilePosition2 : 6000;
+    const fadeInPosition1 = isMobileSize ? 2350 : 5400;
+    const fadeInPosition2 = isMobileSize ? 2600 : 6000;
 
     window.addEventListener('scroll', () => {
       setIsMobileSize(window.innerWidth < 720);
 
-      if (window.pageYOffset <= fadeInPosition1) {
+      if (window.scrollY <= fadeInPosition1) {
         setFadeInActive1(false);
       }
-      if (window.pageYOffset > fadeInPosition1) {
+      if (window.scrollY > fadeInPosition1) {
         setFadeInActive1(true);
       }
 
-      if (window.pageYOffset <= fadeInPosition2) {
+      if (window.scrollY <= fadeInPosition2) {
         setFadeInActive2(false);
       }
-      if (window.pageYOffset > fadeInPosition2) {
+      if (window.scrollY > fadeInPosition2) {
         setFadeInActive2(true);
       }
     });

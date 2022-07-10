@@ -10,7 +10,6 @@ import {
 
 import image from './area5_pic1.png';
 import FadeInArticle from '../FadeInArticle';
-import isiOS from '../../isiOS';
 
 export default function Section5(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
@@ -26,23 +25,21 @@ export default function Section5(): JSX.Element {
     window.addEventListener('resize', () => handleResize());
 
     const isMobileSize = window.innerWidth < 720;
-    const mobilePosition1 = isiOS() ? 3800 : 1750;
-    const fadeInPosition1 = isMobileSize ? mobilePosition1 : 4000;
-    const mobilePosition2 = isiOS() ? 4000 : 1900;
-    const fadeInPosition2 = isMobileSize ? mobilePosition2 : 4400;
+    const fadeInPosition1 = isMobileSize ? 1750 : 4000;
+    const fadeInPosition2 = isMobileSize ? 1900 : 4400;
 
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset <= fadeInPosition1) {
+      if (window.scrollY <= fadeInPosition1) {
         setFadeInActive(false);
       }
-      if (window.pageYOffset > fadeInPosition1) {
+      if (window.scrollY > fadeInPosition1) {
         setFadeInActive(true);
       }
 
-      if (window.pageYOffset <= fadeInPosition2) {
+      if (window.scrollY <= fadeInPosition2) {
         setFadeInActive2(false);
       }
-      if (window.pageYOffset > fadeInPosition2) {
+      if (window.scrollY > fadeInPosition2) {
         setFadeInActive2(true);
       }
     });
