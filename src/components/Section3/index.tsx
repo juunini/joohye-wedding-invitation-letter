@@ -30,7 +30,16 @@ export default function Section3(): JSX.Element {
         marginBottom: `${resize * 160}px`,
       }}
     >
-      <Title fontSize={`${resize * 94}px`}>Since 2010</Title>
+      <Title
+        fontSize={`${resize * 94}px`}
+        style={{
+          height: `${resize * 80}px`,
+          lineHeight: 1,
+          marginBottom: `${resize * 30}px`,
+        }}
+      >
+        Since 2010
+      </Title>
       <SubTitle fontSize={`${resize * 26}px`} style={{ marginBottom: `${resize * 160}px` }}>
         함께 나눈 시간 13년, 길고 긴 연애를 마치고
         <br />
