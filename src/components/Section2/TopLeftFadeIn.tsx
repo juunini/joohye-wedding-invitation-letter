@@ -37,7 +37,7 @@ export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
         />
 
         <TextType1
-          top={`${105 * resize}px`}
+          top={`${120 * resize}px`}
           left={`${370 * resize}px`}
           fontSize={`${20 * resize}px`}
           rotate={90}
@@ -48,7 +48,7 @@ export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
             fontSize={`${16 * resize}px`}
             letterSpacing={`${5 * resize}px`}
           >
-            Graceful
+            GRACEFUL
           </TextType2>
         </TextType1>
       </FadeInArticle>

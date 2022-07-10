@@ -42,7 +42,7 @@ export default function Section6(): JSX.Element {
         <TextType1
           fontSize={`${resize * 20}px`}
           rotate={90}
-          top={`${resize * 120}px`}
+          top={`${resize * 130}px`}
           right={`${resize * -160}px`}
         >
           CONCEPT 3 -
@@ -50,7 +50,7 @@ export default function Section6(): JSX.Element {
           <TextType2
             fontSize={`${resize * 16}px`}
           >
-            Modern
+            MODERN
           </TextType2>
         </TextType1>
       </div>

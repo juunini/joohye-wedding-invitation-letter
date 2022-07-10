@@ -84,7 +84,7 @@ export default function Section3(): JSX.Element {
             fontSize={`${resize * 16}px`}
             letterSpacing={`${resize * 5}px`}
           >
-            Lovely
+            LOVELY
           </TextType2>
         </TextType1>
 
