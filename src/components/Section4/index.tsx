@@ -20,11 +20,15 @@ export default function Section4(): JSX.Element {
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', () => handleResize());
+
+    const isMobileSize = window.innerWidth < 720;
+    const fadeInPosition = isMobileSize ? 1800 : 3200;
+
     window.addEventListener('scroll', () => {
-      if (window.scrollY <= 3600) {
+      if (window.scrollY <= fadeInPosition) {
         setFadeInActive(false);
       }
-      if (window.scrollY > 3600) {
+      if (window.scrollY > fadeInPosition) {
         setFadeInActive(true);
       }
     });

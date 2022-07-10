@@ -5,7 +5,6 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import Ball from '../Ball';
 import { CopyButton } from '../Buttons';
-import FadeInArticle from '../FadeInArticle';
 import Section from '../Section';
 
 interface TextProps {
@@ -40,21 +39,12 @@ export default function AddressSection(): JSX.Element {
 
   const [resize, setResize] = useState<number>(1);
   const [tooltipOpen, setTooltipOpen] = useState<boolean>(false);
-  const [fadeInActive, setFadeInActive] = useState<boolean>(false);
 
   const handleResize = (): void => setResize(ref.current!.clientWidth / 720);
 
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', () => handleResize());
-    window.addEventListener('scroll', () => {
-      if (window.scrollY <= 8000) {
-        setFadeInActive(false);
-      }
-      if (window.scrollY > 8000) {
-        setFadeInActive(true);
-      }
-    });
 
     // @ts-ignore
     const position = new naver.maps.LatLng(37.5240721, 126.8754808);
@@ -89,74 +79,64 @@ export default function AddressSection(): JSX.Element {
       ref={ref}
       style={{
         textAlign: 'center',
-        height: `${resize * 963}px`,
       }}
     >
-      <FadeInArticle
-        direction="bottom"
-        active={fadeInActive}
-        style={{
-          display: fadeInActive ? 'block' : 'none',
-          width: `${resize * 720}px`,
-        }}
-      >
-        <Title fontSize={`${resize * 40}px`} marginBottom={`${resize * 40}px`} style={{ fontWeight: 500 }}>
-          오시는 길
-          <CopyToClipboard
-            text="서울특별시 양천구 목1동 오목로 344"
-            onCopy={() => {
-              setTooltipOpen(true);
+      <Title fontSize={`${resize * 40}px`} marginBottom={`${resize * 40}px`} style={{ fontWeight: 500 }}>
+        오시는 길
+        <CopyToClipboard
+          text="서울특별시 양천구 목1동 오목로 344"
+          onCopy={() => {
+            setTooltipOpen(true);
 
-              setTimeout(() => setTooltipOpen(false), 2000);
-            }}
-          >
-            <Tooltip title="복사되었습니다." arrow open={tooltipOpen}>
-              <CopyButton
-                type="button"
-                fontSize={`${resize * 24}px`}
-                padding={`${resize * 10}px ${resize * 20}px`}
-                top="0"
-                right={`${resize * 40}px`}
-              >
-                주소 복사
-              </CopyButton>
-            </Tooltip>
-          </CopyToClipboard>
-        </Title>
+            setTimeout(() => setTooltipOpen(false), 2000);
+          }}
+        >
+          <Tooltip title="복사되었습니다." arrow open={tooltipOpen}>
+            <CopyButton
+              type="button"
+              fontSize={`${resize * 24}px`}
+              padding={`${resize * 10}px ${resize * 20}px`}
+              top="0"
+              right={`${resize * 40}px`}
+            >
+              주소 복사
+            </CopyButton>
+          </Tooltip>
+        </CopyToClipboard>
+      </Title>
 
-        <div id="map" style={{ marginBottom: `${resize * 50}px`, height: `${resize * 350}px` }}>지도</div>
+      <div id="map" style={{ marginBottom: `${resize * 50}px`, height: `${resize * 350}px` }}>지도</div>
 
-        <H4 fontSize={`${resize * 26}px`} marginBottom={`${resize * 10}px`}>
-          지하철
-        </H4>
-        <P fontSize={`${resize * 24}px`} marginBottom={`${resize * 50}px`}>
-          <Ball width={`${resize * 20}px`} height={`${resize * 20}px`} color="#531aba" />
-          {' '}
-          5호선 오목교역 7번출구 앞
-        </P>
+      <H4 fontSize={`${resize * 26}px`} marginBottom={`${resize * 10}px`}>
+        지하철
+      </H4>
+      <P fontSize={`${resize * 24}px`} marginBottom={`${resize * 50}px`}>
+        <Ball width={`${resize * 20}px`} height={`${resize * 20}px`} color="#531aba" />
+        {' '}
+        5호선 오목교역 7번출구 앞
+      </P>
 
-        <H4 fontSize={`${resize * 26}px`} marginBottom={`${resize * 10}px`}>
-          버스
-        </H4>
-        <P fontSize={`${resize * 24}px`} marginBottom={`${resize * 50}px`}>
-          <Ball width={`${resize * 20}px`} height={`${resize * 20}px`} color="#1fb256" />
-          {' '}
-          지선: 5616, 5012, 6211,6625, 6628, 6629, 6640,
-          <br />
-          6630,6636, 6624, 6648
-          <br />
-          <Ball width={`${resize * 20}px`} height={`${resize * 20}px`} color="#1f4fb2" />
-          {' '}
-          간선 : 640, 650
-        </P>
+      <H4 fontSize={`${resize * 26}px`} marginBottom={`${resize * 10}px`}>
+        버스
+      </H4>
+      <P fontSize={`${resize * 24}px`} marginBottom={`${resize * 50}px`}>
+        <Ball width={`${resize * 20}px`} height={`${resize * 20}px`} color="#1fb256" />
+        {' '}
+        지선: 5616, 5012, 6211,6625, 6628, 6629, 6640,
+        <br />
+        6630,6636, 6624, 6648
+        <br />
+        <Ball width={`${resize * 20}px`} height={`${resize * 20}px`} color="#1f4fb2" />
+        {' '}
+        간선 : 640, 650
+      </P>
 
-        <H4 fontSize={`${resize * 26}px`} marginBottom={`${resize * 10}px`}>
-          주차 안내
-        </H4>
-        <P fontSize={`${resize * 24}px`} marginBottom={`${resize * 50}px`}>
-          건물옆 전용주차장 또는 공영주차장 이용가능 (800대)
-        </P>
-      </FadeInArticle>
+      <H4 fontSize={`${resize * 26}px`} marginBottom={`${resize * 10}px`}>
+        주차 안내
+      </H4>
+      <P fontSize={`${resize * 24}px`} marginBottom={`${resize * 50}px`}>
+        건물옆 전용주차장 또는 공영주차장 이용가능 (800대)
+      </P>
     </Section>
   );
 }

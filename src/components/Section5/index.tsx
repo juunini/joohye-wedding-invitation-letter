@@ -23,18 +23,23 @@ export default function Section5(): JSX.Element {
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', () => handleResize());
+
+    const isMobileSize = window.innerWidth < 720;
+    const fadeInPosition1 = isMobileSize ? 2250 : 4000;
+    const fadeInPosition2 = isMobileSize ? 2380 : 4400;
+
     window.addEventListener('scroll', () => {
-      if (window.scrollY <= 4500) {
+      if (window.scrollY <= fadeInPosition1) {
         setFadeInActive(false);
       }
-      if (window.scrollY > 4500) {
+      if (window.scrollY > fadeInPosition1) {
         setFadeInActive(true);
       }
 
-      if (window.scrollY <= 5000) {
+      if (window.scrollY <= fadeInPosition2) {
         setFadeInActive2(false);
       }
-      if (window.scrollY > 5000) {
+      if (window.scrollY > fadeInPosition2) {
         setFadeInActive2(true);
       }
     });

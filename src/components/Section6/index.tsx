@@ -16,24 +16,31 @@ export default function Section6(): JSX.Element {
   const [resize, setResize] = useState<number>(1);
   const [fadeInActive1, setFadeInActive1] = useState<boolean>(false);
   const [fadeInActive2, setFadeInActive2] = useState<boolean>(false);
+  const [isMobileSize, setIsMobileSize] = useState<boolean>(false);
 
   const handleResize = (): void => setResize(ref.current!.clientWidth / 720);
 
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', () => handleResize());
+
+    const fadeInPosition1 = isMobileSize ? 2850 : 5400;
+    const fadeInPosition2 = isMobileSize ? 3300 : 6000;
+
     window.addEventListener('scroll', () => {
-      if (window.scrollY <= 6000) {
+      setIsMobileSize(window.innerWidth < 720);
+
+      if (window.scrollY <= fadeInPosition1) {
         setFadeInActive1(false);
       }
-      if (window.scrollY > 6000) {
+      if (window.scrollY > fadeInPosition1) {
         setFadeInActive1(true);
       }
 
-      if (window.scrollY <= 6600) {
+      if (window.scrollY <= fadeInPosition2) {
         setFadeInActive2(false);
       }
-      if (window.scrollY > 6600) {
+      if (window.scrollY > fadeInPosition2) {
         setFadeInActive2(true);
       }
     });
@@ -42,12 +49,14 @@ export default function Section6(): JSX.Element {
   return (
     <Section
       ref={ref}
-      style={{ marginBottom: `${resize * 160}px` }}
+      style={{
+        overflow: 'hidden',
+        marginBottom: `${resize * 160}px`,
+      }}
     >
       <div
         style={{
           position: 'relative',
-          width: `${resize * 540}px`,
           height: `${resize * 675}px`,
           marginRight: 'auto',
           marginBottom: `${resize * 160}px`,
@@ -58,29 +67,42 @@ export default function Section6(): JSX.Element {
           active={fadeInActive1}
           style={{
             display: fadeInActive1 ? 'block' : 'none',
+            width: `${resize * 540}px`,
+            height: `${resize * 675}px`,
           }}
         >
-          <img
-            src={image1}
-            alt=""
-            style={{ width: '100%' }}
-          />
+          <div
+            style={{
+              position: 'relative',
+              width: `${resize * 540}px`,
+              height: `${resize * 675}px`,
+            }}
+          >
+            <img
+              src={image1}
+              alt=""
+              style={{
+                width: `${resize * 540}px`,
+                height: `${resize * 675}px`,
+              }}
+            />
+            <TextType1
+              fontSize={`${resize * 20}px`}
+              rotate={90}
+              top={`${resize * (isMobileSize ? 125 : 105)}px`}
+              right={`${resize * -(147 + 30)}px`}
+            >
+              CONCEPT 3 -
+              {' '}
+              <TextType2
+                fontSize={`${resize * 16}px`}
+              >
+                MODERN
+              </TextType2>
+            </TextType1>
+          </div>
         </FadeInArticle>
 
-        <TextType1
-          fontSize={`${resize * 20}px`}
-          rotate={90}
-          top={`${resize * 110}px`}
-          right={`${resize * -(147 + 30)}px`}
-        >
-          CONCEPT 3 -
-          {' '}
-          <TextType2
-            fontSize={`${resize * 16}px`}
-          >
-            MODERN
-          </TextType2>
-        </TextType1>
       </div>
 
       <div
@@ -96,25 +118,35 @@ export default function Section6(): JSX.Element {
           active={fadeInActive2}
           style={{
             display: fadeInActive2 ? 'block' : 'none',
+            width: `${resize * 540}px`,
+            height: `${resize * 675}px`,
           }}
         >
-          <img
-            src={image2}
-            alt=""
-            style={{ width: '100%' }}
-          />
+          <div
+            style={{
+              position: 'relative',
+              width: `${resize * 540}px`,
+              height: `${resize * 675}px`,
+            }}
+          >
+            <img
+              src={image2}
+              alt=""
+              style={{ width: '100%' }}
+            />
+            <TextType1
+              fontSize={`${resize * 18}px`}
+              rotate={-90}
+              top={`${resize * (isMobileSize ? 225 : 205)}px`}
+              left={`${resize * -(270 + 30)}px`}
+              style={{ textAlign: 'right' }}
+            >
+              JOYFULLY INVITE YOU TO SHARE
+              <br />
+              IN THEIR HAPPINESS AS THEY UNITE IN MARRIAGE
+            </TextType1>
+          </div>
         </FadeInArticle>
-        <TextType1
-          fontSize={`${resize * 18}px`}
-          rotate={-90}
-          top={`${resize * 205}px`}
-          left={`${resize * -(270 + 30)}px`}
-          style={{ textAlign: 'right' }}
-        >
-          JOYFULLY INVITE YOU TO SHARE
-          <br />
-          IN THEIR HAPPINESS AS THEY UNITE IN MARRIAGE
-        </TextType1>
       </div>
     </Section>
   );
