@@ -135,7 +135,7 @@ export default function BankAccountSection(): JSX.Element {
 
       <Accordion
         style={{
-          marginBottom: `${resize * 20}px`,
+          marginBottom: `${resize * 100}px`,
           color: '#000',
           borderRadius: `${resize * 50}px`,
           boxShadow: 'none',
