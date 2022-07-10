@@ -7,6 +7,7 @@ import {
   TextType4,
   Title,
 } from '../Texts';
+import WeddingDayModal from './WeddingDayModal';
 
 import callIcon from './call.png';
 import talkIcon from './talk.png';
@@ -15,6 +16,7 @@ export default function WeddingDaySection(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
   const [resize, setResize] = useState<number>(1);
+  const [open, setOpen] = useState<boolean>(false);
 
   const handleResize = (): void => setResize(ref.current!.clientWidth / 720);
 
@@ -136,9 +138,12 @@ export default function WeddingDaySection(): JSX.Element {
           borderRadius: 0,
           boxShadow: 'none',
         }}
+        onClick={(): void => setOpen(true)}
       >
         혼주에게 연락하기
       </Button>
+
+      <WeddingDayModal open={open} onClose={() => setOpen(false)} resize={resize} />
     </Section>
   );
 }

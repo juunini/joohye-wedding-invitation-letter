@@ -102,7 +102,7 @@ export default function BankAccountSection(): JSX.Element {
             </Tooltip>
           </CopyToClipboard>
         </AccordionDetails>
-        <AccordionDetails style={{ position: 'relative', padding: `${resize * 30}px ${resize * 30}px`, borderBottom: '1px solid #e9e9e9' }}>
+        <AccordionDetails style={{ position: 'relative', padding: `${resize * 30}px ${resize * 30}px` }}>
           <TextType3
             fontSize={`${resize * 24}px`}
             fontWeight={300}
@@ -193,7 +193,7 @@ export default function BankAccountSection(): JSX.Element {
             </Tooltip>
           </CopyToClipboard>
         </AccordionDetails>
-        <AccordionDetails style={{ position: 'relative', padding: `${resize * 30}px ${resize * 30}px`, borderBottom: '1px solid #e9e9e9' }}>
+        <AccordionDetails style={{ position: 'relative', padding: `${resize * 30}px ${resize * 30}px` }}>
           <TextType3
             fontSize={`${resize * 24}px`}
             fontWeight={300}
