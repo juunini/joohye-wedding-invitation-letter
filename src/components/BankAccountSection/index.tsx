@@ -116,7 +116,17 @@ export default function BankAccountSection(): JSX.Element {
         </AccordionDetails>
       </Accordion>
 
-      <Accordion style={{ color: '#000', borderRadius: '20px' }}>
+      <Accordion
+        style={{
+          color: '#000',
+          borderRadius: '20px',
+        }}
+        sx={{
+          '&:before': {
+            display: 'none',
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ArrowDropDownIcon style={{ fill: '#000', fontSize: `${resize * 20}px`, zoom: 2 }} />}
           style={{
