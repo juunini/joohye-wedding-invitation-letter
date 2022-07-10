@@ -58,7 +58,7 @@ export default function WeddingDaySection(): JSX.Element {
         fontSize={`${resize * 26}px`}
         style={{ marginBottom: `${resize * 60}px`, fontWeight: 300 }}
       >
-        로프트가든344
+        로프트가든344 10층 메인홀
       </TextType3>
 
       <TextType3

@@ -1,75 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
 
 import image from './area1_pic1.png';
-import Title from './Title';
-import Name from './Name';
-import Date from './Date';
-import Address from './Address';
 import SaveTheDate from '../SaveTheDate';
 import Section from '../Section';
-import { OutlineText } from '../Texts';
+import {
+  OutlineText, TextType1, TextType3, TextType4, Title,
+} from '../Texts';
 
-interface Props {
-  title?: {
-    lineHeight: number;
-    fontSize: number;
-    fontWeight: number;
-  };
-  name?: {
-    fontSize: number;
-    fontWeight: number;
-  };
-  date?: {
-    fontSize: number;
-    fontWeight: number;
-    letterSpacing: number;
-  };
-  address?: {
-    fontSize: number;
-    fontWeight: number;
-    letterSpacing: number;
-  };
-}
-
-export default function Section1({
-  title = {
-    lineHeight: 0.9,
-    fontSize: 90,
-    fontWeight: 500,
-  },
-  name = {
-    fontSize: 20,
-    fontWeight: 500,
-  },
-  date = {
-    letterSpacing: 1.4,
-    fontSize: 28,
-    fontWeight: 500,
-  },
-  address = {
-    letterSpacing: 1.4,
-    fontSize: 28,
-    fontWeight: 300,
-  },
-}: Props): JSX.Element {
+export default function Section1(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
   const [resize, setResize] = useState<number>(1);
 
-  const [titleFontSize, setTitleFontSize] = useState(`${title.fontSize}px`);
-  const [nameFontSize, setNameFontSize] = useState(`${name.fontSize}px`);
-  const [dateFontSize, setDateFontSize] = useState(`${date.fontSize}px`);
-  const [addressFontSize, setAddressFontSize] = useState(`${address.fontSize}px`);
-  const [zoom, setZoom] = useState(1);
-
-  function handleResize(): void {
-    setTitleFontSize(`${(title.fontSize / 720) * ref.current!.clientWidth}px`);
-    setNameFontSize(`${(name.fontSize / 720) * ref.current!.clientWidth}px`);
-    setDateFontSize(`${(date.fontSize / 720) * ref.current!.clientWidth}px`);
-    setAddressFontSize(`${(address.fontSize / 720) * ref.current!.clientWidth}px`);
-    setZoom(ref.current!.clientWidth / 720);
-    setResize(ref.current!.clientWidth / 720);
-  }
+  const handleResize = (): void => setResize(ref.current!.clientWidth / 720);
 
   useEffect(() => {
     handleResize();
@@ -77,74 +20,97 @@ export default function Section1({
   }, []);
 
   return (
-    <Section ref={ref} style={{ paddingTop: `${resize * 40}px`, marginBottom: `${resize * 160}px` }}>
-      <SaveTheDate top="40px" right="40px" zoom={zoom} />
-
-      <Title
-        lineHeight={title.lineHeight}
-        fontSize={titleFontSize}
-        fontWeight={title.fontWeight}
-        style={{
-          paddingLeft: 'calc(110 / 720 * 100%)',
-          marginBottom: 'calc(-185 / 720 * 100%)',
-        }}
-      >
-        <OutlineText>
-          We
-          <br />
-          are
-        </OutlineText>
-        <br />
-        getting
-        <br />
-        married
-      </Title>
-
-      <img
-        src={image}
-        alt=""
+    <Section
+      ref={ref}
+      style={{
+        position: 'relative',
+        paddingTop: `${resize * 40}px`,
+        marginBottom: `${resize * 160}px`,
+      }}
+    >
+      <div
         style={{
           position: 'relative',
-          zIndex: 1,
-          display: 'block',
-          width: 'calc(600 / 720 * 100%)',
-          margin: '0 auto 20px',
+          width: `${resize * 540}px`,
+          margin: 'auto',
+          marginBottom: `${resize * 50}px`,
         }}
-      />
+      >
+        <SaveTheDate top="-40px" right="-40px" zoom={resize * 1} />
 
-      <Name
-        fontWeight={name.fontWeight}
-        fontSize={nameFontSize}
+        <Title
+          lineHeight={1}
+          fontSize={`${resize * 94}px`}
+          style={{
+            position: 'relative',
+            zIndex: 2,
+            paddingLeft: `${resize * 20}px`,
+            marginBottom: `${resize * -150}px`,
+          }}
+        >
+          <OutlineText>
+            We
+            <br />
+            are
+          </OutlineText>
+          <br />
+          getting
+          <br />
+          married
+        </Title>
+
+        <img
+          src={image}
+          alt=""
+          style={{
+            position: 'relative',
+            zIndex: 1,
+            display: 'block',
+            width: '100%',
+          }}
+        />
+      </div>
+
+      <TextType1
+        fontWeight={400}
+        fontSize={`${resize * 20}px`}
         rotate={-90}
-        left="calc(-50 / 720 * 100%)"
+        top="50%"
+        left={`${resize * -50}px`}
       >
         KIM CHEOL SOO
-      </Name>
+      </TextType1>
 
-      <Name
-        fontWeight={name.fontWeight}
-        fontSize={nameFontSize}
+      <TextType1
+        fontWeight={400}
+        fontSize={`${resize * 20}px`}
         rotate={-90}
-        right="calc(-50 / 720 * 100%)"
+        top="50%"
+        right={`${resize * -50}px`}
       >
         YANG JOO HYE
-      </Name>
+      </TextType1>
 
-      <Date
-        fontWeight={date.fontWeight}
-        fontSize={dateFontSize}
-        letterSpacing={date.letterSpacing}
+      <TextType4
+        fontWeight={500}
+        fontSize={`${resize * 26}px`}
+        style={{
+          textAlign: 'center',
+          textDecoration: 'underline',
+        }}
       >
         2022.10.03 MON 14:00
-      </Date>
+      </TextType4>
 
-      <Address
-        fontWeight={address.fontWeight}
-        fontSize={addressFontSize}
-        letterSpacing={address.letterSpacing}
+      <TextType3
+        fontWeight={300}
+        fontSize={`${resize * 26}px`}
+        style={{
+          textAlign: 'center',
+        }}
       >
-        로프트가든344
-      </Address>
+        로프트가든344 10층 메인홀
+      </TextType3>
     </Section>
   );
 }
