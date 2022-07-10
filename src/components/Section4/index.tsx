@@ -54,7 +54,7 @@ export default function Section4(): JSX.Element {
         <TextType1
           fontSize={`${resize * 18}px`}
           rotate={90}
-          top={`${resize * 440}px`}
+          top={`${resize * (405 + 30)}px`}
           left={`${resize * -50}px`}
         >
           INVITE YOU TO JOIN THE CEREMONY AND

@@ -43,7 +43,7 @@ export default function Section6(): JSX.Element {
           fontSize={`${resize * 20}px`}
           rotate={90}
           top={`${resize * 130}px`}
-          right={`${resize * -160}px`}
+          right={`${resize * -(147 + 30)}px`}
         >
           CONCEPT 3 -
           {' '}
@@ -71,7 +71,7 @@ export default function Section6(): JSX.Element {
           fontSize={`${resize * 18}px`}
           rotate={-90}
           top={`${resize * 220}px`}
-          left={`${resize * -300}px`}
+          left={`${resize * -(270 + 30)}px`}
           style={{ textAlign: 'right' }}
         >
           JOYFULLY INVITE YOU TO SHARE

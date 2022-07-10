@@ -40,7 +40,7 @@ export default function BottomRightFadeIn({ getClientWidth }: Props): JSX.Elemen
 
         <TextType1
           top={`${resize * 190}px`}
-          right={`${resize * 300}px`}
+          right={`${resize * (250 + 30)}px`}
           fontSize={`${resize * 20}px`}
           rotate={-90}
           style={{ textAlign: 'right' }}

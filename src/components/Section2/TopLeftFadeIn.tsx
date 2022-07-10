@@ -38,7 +38,7 @@ export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
 
         <TextType1
           top={`${120 * resize}px`}
-          left={`${370 * resize}px`}
+          left={`${(320 + 30) * resize}px`}
           fontSize={`${20 * resize}px`}
           rotate={90}
         >
