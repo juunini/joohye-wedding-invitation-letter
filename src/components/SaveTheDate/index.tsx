@@ -2,8 +2,6 @@ import Svg from './Svg';
 import Text from './Text';
 import Path from './Path';
 
-const message = '2022.10.03◆SAVE THE DATE◆';
-
 interface Props {
   duration?: number;
   radius?: number;
@@ -39,10 +37,13 @@ export default function SaveTheDate({
         right,
         bottom,
         zoom,
+        overflow: 'visible',
       }}
     >
       <Path cx={radius} cy={radius} radius={radius} />
-      <Text fontSize={fontSize} letterSpacing={letterSpacing}>{message}</Text>
+      <Text fontSize={fontSize} letterSpacing={letterSpacing}>
+        2022.10.03◆SAVE THE DATE◆
+      </Text>
     </Svg>
   );
 }
