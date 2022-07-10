@@ -16,7 +16,7 @@ export default function Section6(): JSX.Element {
   const [resize, setResize] = useState<number>(1);
   const [fadeInActive1, setFadeInActive1] = useState<boolean>(false);
   const [fadeInActive2, setFadeInActive2] = useState<boolean>(false);
-  const [isMobileSize, setIsMobileSize] = useState<boolean>(false);
+  const [isMobileSize, setIsMobileSize] = useState<boolean>(window.innerWidth < 720);
 
   const handleResize = (): void => setResize(ref.current!.clientWidth / 720);
 
