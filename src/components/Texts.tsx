@@ -106,8 +106,8 @@ interface OutlineTextProps {
 
 export const OutlineText = emotion.span(({
   color = '#FFF',
-  outlineColor = '#000',
+  outlineColor = '#6b6b6b',
 }: OutlineTextProps) => ({
   color,
-  textShadow: `-1px -1px 0 ${outlineColor}, 1px -1px 0 ${outlineColor}, -1px 1px 0 ${outlineColor}, 1px 1px 0 ${outlineColor}`,
+  WebkitTextStroke: `1px solid ${outlineColor}`,
 }));
