@@ -51,7 +51,7 @@ export default function BankAccountSection(): JSX.Element {
         style={{
           marginBottom: `${resize * 20}px`,
           color: '#000',
-          borderRadius: '30px',
+          borderRadius: `${resize * 50}px`,
           boxShadow: 'none',
         }}
       >
@@ -59,7 +59,6 @@ export default function BankAccountSection(): JSX.Element {
           expandIcon={<ArrowDropDownIcon style={{ fill: '#000', fontSize: `${resize * 20}px`, zoom: 2 }} />}
           style={{
             padding: `${resize * 6}px ${resize * 30}px`,
-            borderRadius: '30px',
           }}
         >
           <TextType3
@@ -136,8 +135,9 @@ export default function BankAccountSection(): JSX.Element {
 
       <Accordion
         style={{
+          marginBottom: `${resize * 20}px`,
           color: '#000',
-          borderRadius: '30px',
+          borderRadius: `${resize * 50}px`,
           boxShadow: 'none',
         }}
         sx={{

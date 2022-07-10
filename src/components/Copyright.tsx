@@ -15,7 +15,7 @@ export default function Copyright(): JSX.Element {
   return (
     <TextType4
       ref={ref}
-      fontSize={`${18 * resize}px`}
+      fontSize={`${20 * resize}px`}
       style={{
         display: 'block',
         position: 'relative',

@@ -30,7 +30,7 @@ export default function WeddingDayModal({ open, onClose, resize }: Props) {
           width: `${380 * resize}px`,
           paddingTop: `${resize * 30}px`,
           backgroundColor: 'white',
-          borderRadius: '40px',
+          borderRadius: `${resize * 40}px`,
         }}
       >
         <TextType3
