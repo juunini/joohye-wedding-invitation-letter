@@ -24,7 +24,7 @@ export default function Section1(): JSX.Element {
       ref={ref}
       style={{
         position: 'relative',
-        paddingTop: `${resize * 40}px`,
+        paddingTop: `${resize * 70}px`,
         marginBottom: `${resize * 160}px`,
       }}
     >
@@ -36,16 +36,16 @@ export default function Section1(): JSX.Element {
           marginBottom: `${resize * 50}px`,
         }}
       >
-        <SaveTheDate top="-40px" right="-40px" zoom={resize * 1} />
+        <SaveTheDate top="-30px" right="-50px" zoom={resize * 1} />
 
         <Title
-          lineHeight={1}
+          lineHeight={0.9}
           fontSize={`${resize * 94}px`}
           style={{
             position: 'relative',
             zIndex: 2,
             paddingLeft: `${resize * 20}px`,
-            marginBottom: `${resize * -150}px`,
+            marginBottom: `${resize * -135}px`,
           }}
         >
           <OutlineText>
@@ -76,7 +76,7 @@ export default function Section1(): JSX.Element {
         fontSize={`${resize * 20}px`}
         rotate={-90}
         top="50%"
-        left={`${resize * -50}px`}
+        left={`${resize * -30}px`}
       >
         KIM CHEOL SOO
       </TextType1>
@@ -86,7 +86,7 @@ export default function Section1(): JSX.Element {
         fontSize={`${resize * 20}px`}
         rotate={-90}
         top="50%"
-        right={`${resize * -50}px`}
+        right={`${resize * -30}px`}
       >
         YANG JOO HYE
       </TextType1>
