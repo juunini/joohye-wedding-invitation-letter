@@ -14,7 +14,9 @@ export default function Section3(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
   const [resize, setResize] = useState<number>(1);
-  const [fadeInActive, setFadeInActive] = useState<boolean>(false);
+  const [fadeInTitleActive, setFadeInTitleActive] = useState<boolean>(true);
+  const [fadeInActive1, setFadeInActive1] = useState<boolean>(false);
+  const [fadeInActive2, setFadeInActive2] = useState<boolean>(false);
 
   const handleResize = (): void => setResize(ref.current!.clientWidth / 720);
 
@@ -22,11 +24,25 @@ export default function Section3(): JSX.Element {
     handleResize();
     window.addEventListener('resize', () => handleResize());
     window.addEventListener('scroll', () => {
+      if (window.scrollY <= 1800) {
+        setFadeInTitleActive(false);
+      }
+      if (window.scrollY > 1800) {
+        setFadeInTitleActive(true);
+      }
+
+      if (window.scrollY <= 2200) {
+        setFadeInActive1(false);
+      }
+      if (window.scrollY > 2200) {
+        setFadeInActive1(true);
+      }
+
       if (window.scrollY <= 2800) {
-        setFadeInActive(false);
+        setFadeInActive2(false);
       }
       if (window.scrollY > 2800) {
-        setFadeInActive(true);
+        setFadeInActive2(true);
       }
     });
   }, []);
@@ -39,30 +55,65 @@ export default function Section3(): JSX.Element {
         marginBottom: `${resize * 160}px`,
       }}
     >
-      <Title
-        fontSize={`${resize * 94}px`}
+      <div
         style={{
-          height: `${resize * 80}px`,
-          lineHeight: 1,
-          marginBottom: `${resize * 30}px`,
+          position: 'relative',
+          height: resize * (80 + 30 + 80),
+          marginBottom: `${resize * 160}px`,
         }}
       >
-        Since 2010
-      </Title>
-      <SubTitle fontSize={`${resize * 26}px`} style={{ marginBottom: `${resize * 160}px` }}>
-        함께 나눈 시간 13년, 길고 긴 연애를 마치고
-        <br />
-        철수와 주혜 드디어 결혼합니다.
-      </SubTitle>
+        <FadeInArticle
+          direction="bottom"
+          active={fadeInTitleActive}
+          style={{
+            display: fadeInTitleActive ? 'block' : 'none',
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }}
+        >
+          <Title
+            fontSize={`${resize * 94}px`}
+            style={{
+              height: `${resize * 80}px`,
+              lineHeight: 1,
+              marginBottom: `${resize * 30}px`,
+            }}
+          >
+            Since 2010
+          </Title>
 
-      <img
-        src={image1}
-        alt=""
+          <SubTitle fontSize={`${resize * 26}px`}>
+            함께 나눈 시간 13년, 길고 긴 연애를 마치고
+            <br />
+            철수와 주혜 드디어 결혼합니다.
+          </SubTitle>
+        </FadeInArticle>
+      </div>
+
+      <div
         style={{
-          width: '100%',
+          position: 'relative',
+          height: `${resize * 870}px`,
           marginBottom: `${-(resize * 160)}px`,
         }}
-      />
+      >
+        <FadeInArticle
+          direction="left"
+          active={fadeInActive1}
+          style={{
+            display: fadeInActive1 ? 'block' : 'none',
+            width: `${resize * 720}px`,
+          }}
+        >
+          <img
+            src={image1}
+            alt=""
+            style={{
+              width: '100%',
+            }}
+          />
+        </FadeInArticle>
+      </div>
 
       <div
         style={{
@@ -83,10 +134,10 @@ export default function Section3(): JSX.Element {
             direction="top"
             from="20%"
             to="0"
-            active={fadeInActive}
+            active={fadeInActive2}
             style={{
               width: '100%',
-              display: fadeInActive ? 'block' : 'none',
+              display: fadeInActive2 ? 'block' : 'none',
             }}
           >
             <img

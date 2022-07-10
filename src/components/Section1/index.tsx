@@ -6,6 +6,7 @@ import Section from '../Section';
 import {
   OutlineText, TextType1, TextType3, TextType4, Title,
 } from '../Texts';
+import FadeInArticle from '../FadeInArticle';
 
 export default function Section1(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
@@ -38,37 +39,55 @@ export default function Section1(): JSX.Element {
       >
         <SaveTheDate top="-30px" right="-50px" zoom={resize * 1} />
 
-        <Title
-          lineHeight={0.9}
-          fontSize={`${resize * 94}px`}
+        <FadeInArticle
+          direction="left"
+          active
           style={{
             position: 'relative',
             zIndex: 2,
-            paddingLeft: `${resize * 20}px`,
-            marginBottom: `${resize * -135}px`,
           }}
         >
-          <OutlineText>
-            We
+          <Title
+            lineHeight={0.9}
+            fontSize={`${resize * 94}px`}
+            style={{
+              position: 'relative',
+              zIndex: 2,
+              paddingLeft: `${resize * 20}px`,
+              marginBottom: `${resize * -135}px`,
+            }}
+          >
+            <OutlineText>
+              We
+              <br />
+              are
+            </OutlineText>
             <br />
-            are
-          </OutlineText>
-          <br />
-          getting
-          <br />
-          married
-        </Title>
+            getting
+            <br />
+            married
+          </Title>
+        </FadeInArticle>
 
-        <img
-          src={image}
-          alt=""
-          style={{
-            position: 'relative',
-            zIndex: 1,
-            display: 'block',
-            width: '100%',
-          }}
-        />
+        <div style={{ position: 'relative', height: `${823 * resize}px` }}>
+          <FadeInArticle
+            direction="bottom"
+            from="-20%"
+            to="0"
+            active
+          >
+            <img
+              src={image}
+              alt=""
+              style={{
+                position: 'relative',
+                zIndex: 1,
+                display: 'block',
+                width: '100%',
+              }}
+            />
+          </FadeInArticle>
+        </div>
       </div>
 
       <TextType1

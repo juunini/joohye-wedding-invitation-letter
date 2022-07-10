@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import FadeInArticle from '../FadeInArticle';
 
 import Section from '../Section';
 import {
@@ -10,6 +11,7 @@ import image2 from './area4_pic4.png';
 
 export default function Section4(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
+  const [fadeInActive, setFadeInActive] = useState<boolean>(false);
 
   const [resize, setResize] = useState<number>(1);
 
@@ -18,51 +20,73 @@ export default function Section4(): JSX.Element {
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', () => handleResize());
+    window.addEventListener('scroll', () => {
+      if (window.scrollY <= 3600) {
+        setFadeInActive(false);
+      }
+      if (window.scrollY > 3600) {
+        setFadeInActive(true);
+      }
+    });
   }, []);
 
   return (
     <Section
       ref={ref}
       style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        height: `${560 * resize}px`,
         marginBottom: `${resize * 160}px`,
       }}
     >
-      <img
-        src={image1}
-        alt=""
+      <FadeInArticle
+        direction="bottom"
+        active={fadeInActive}
         style={{
-          width: `${resize * 450}px`,
-        }}
-      />
-
-      <div
-        style={{
-          position: 'relative',
-          marginRight: `${resize * 40}px`,
+          display: fadeInActive ? 'block' : 'none',
+          width: `${720 * resize}px`,
         }}
       >
-        <img
-          src={image2}
-          alt=""
+        <div
           style={{
-            width: `${resize * 190}px`,
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
           }}
-        />
-        <TextType1
-          fontSize={`${resize * 18}px`}
-          rotate={90}
-          top={`${resize * (405 + 30)}px`}
-          left={`${resize * -50}px`}
         >
-          INVITE YOU TO JOIN THE CEREMONY AND
-          <br />
-          CELEBRATION OF OUR MARRIAGE
-        </TextType1>
-      </div>
+          <img
+            src={image1}
+            alt=""
+            style={{
+              width: `${resize * 450}px`,
+            }}
+          />
 
+          <div
+            style={{
+              position: 'relative',
+              marginRight: `${resize * 40}px`,
+            }}
+          >
+            <img
+              src={image2}
+              alt=""
+              style={{
+                width: `${resize * 190}px`,
+              }}
+            />
+            <TextType1
+              fontSize={`${resize * 18}px`}
+              rotate={90}
+              top={`${resize * (405 + 30)}px`}
+              left={`${resize * -50}px`}
+            >
+              INVITE YOU TO JOIN THE CEREMONY AND
+              <br />
+              CELEBRATION OF OUR MARRIAGE
+            </TextType1>
+          </div>
+        </div>
+      </FadeInArticle>
     </Section>
   );
 }

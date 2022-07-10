@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import FadeInArticle from '../FadeInArticle';
 
 import Section from '../Section';
 import {
@@ -13,12 +14,29 @@ export default function Section6(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
   const [resize, setResize] = useState<number>(1);
+  const [fadeInActive1, setFadeInActive1] = useState<boolean>(false);
+  const [fadeInActive2, setFadeInActive2] = useState<boolean>(false);
 
   const handleResize = (): void => setResize(ref.current!.clientWidth / 720);
 
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', () => handleResize());
+    window.addEventListener('scroll', () => {
+      if (window.scrollY <= 6000) {
+        setFadeInActive1(false);
+      }
+      if (window.scrollY > 6000) {
+        setFadeInActive1(true);
+      }
+
+      if (window.scrollY <= 6600) {
+        setFadeInActive2(false);
+      }
+      if (window.scrollY > 6600) {
+        setFadeInActive2(true);
+      }
+    });
   }, []);
 
   return (
@@ -30,19 +48,29 @@ export default function Section6(): JSX.Element {
         style={{
           position: 'relative',
           width: `${resize * 540}px`,
+          height: `${resize * 675}px`,
           marginRight: 'auto',
           marginBottom: `${resize * 160}px`,
         }}
       >
-        <img
-          src={image1}
-          alt=""
-          style={{ width: '100%' }}
-        />
+        <FadeInArticle
+          direction="left"
+          active={fadeInActive1}
+          style={{
+            display: fadeInActive1 ? 'block' : 'none',
+          }}
+        >
+          <img
+            src={image1}
+            alt=""
+            style={{ width: '100%' }}
+          />
+        </FadeInArticle>
+
         <TextType1
           fontSize={`${resize * 20}px`}
           rotate={90}
-          top={`${resize * 130}px`}
+          top={`${resize * 110}px`}
           right={`${resize * -(147 + 30)}px`}
         >
           CONCEPT 3 -
@@ -59,18 +87,27 @@ export default function Section6(): JSX.Element {
         style={{
           position: 'relative',
           width: `${resize * 540}px`,
+          height: `${resize * 675}px`,
           marginLeft: 'auto',
         }}
       >
-        <img
-          src={image2}
-          alt=""
-          style={{ width: '100%' }}
-        />
+        <FadeInArticle
+          direction="right"
+          active={fadeInActive2}
+          style={{
+            display: fadeInActive2 ? 'block' : 'none',
+          }}
+        >
+          <img
+            src={image2}
+            alt=""
+            style={{ width: '100%' }}
+          />
+        </FadeInArticle>
         <TextType1
           fontSize={`${resize * 18}px`}
           rotate={-90}
-          top={`${resize * 220}px`}
+          top={`${resize * 205}px`}
           left={`${resize * -(270 + 30)}px`}
           style={{ textAlign: 'right' }}
         >

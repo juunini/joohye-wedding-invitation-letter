@@ -9,17 +9,35 @@ import {
 } from '../Texts';
 
 import image from './area5_pic1.png';
+import FadeInArticle from '../FadeInArticle';
 
 export default function Section5(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
   const [resize, setResize] = useState<number>(1);
+  const [fadeInActive, setFadeInActive] = useState<boolean>(false);
+  const [fadeInActive2, setFadeInActive2] = useState<boolean>(false);
 
   const handleResize = (): void => setResize(ref.current!.clientWidth / 720);
 
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', () => handleResize());
+    window.addEventListener('scroll', () => {
+      if (window.scrollY <= 4500) {
+        setFadeInActive(false);
+      }
+      if (window.scrollY > 4500) {
+        setFadeInActive(true);
+      }
+
+      if (window.scrollY <= 5000) {
+        setFadeInActive2(false);
+      }
+      if (window.scrollY > 5000) {
+        setFadeInActive2(true);
+      }
+    });
   }, []);
 
   return (
@@ -27,41 +45,66 @@ export default function Section5(): JSX.Element {
       ref={ref}
       style={{ marginBottom: `${resize * 160}px` }}
     >
-      <Title
-        fontSize={`${resize * 94}px`}
-        lineHeight="1"
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          marginBottom: `${resize * -55}px`,
-          paddingLeft: `${resize * 90}px`,
-          letterSpacing: `${resize * -1}px`,
-        }}
+      <div style={{
+        position: 'relative',
+        zIndex: 2,
+        height: `${resize * 282}px`,
+        paddingLeft: `${resize * 90}px`,
+        marginBottom: `${resize * -55}px`,
+      }}
       >
-        <OutlineText>
-          Save
-          <br />
-          &nbsp;&nbsp;&nbsp;
-          the date
-        </OutlineText>
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        22.10.03
-      </Title>
+        <FadeInArticle
+          direction="left"
+          active={fadeInActive}
+          to={`${resize * 90}px`}
+          style={{
+            display: fadeInActive ? 'block' : 'none',
+          }}
+        >
+          <Title
+            fontSize={`${resize * 94}px`}
+            lineHeight="1"
+            style={{
+              position: 'relative',
+              zIndex: 2,
+              letterSpacing: `${resize * -1}px`,
+            }}
+          >
+            <OutlineText>
+              Save
+              <br />
+              &nbsp;&nbsp;&nbsp;
+              the date
+            </OutlineText>
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            22.10.03
+          </Title>
+        </FadeInArticle>
+      </div>
 
       <div
         style={{
           position: 'relative',
           width: `${resize * 540}px`,
+          height: `${resize * 675}px`,
           marginLeft: 'auto',
           marginBottom: `${resize * 160}px`,
         }}
       >
-        <img
-          src={image}
-          alt=""
-          style={{ width: '100%' }}
-        />
+        <FadeInArticle
+          direction="bottom"
+          active={fadeInActive2}
+          style={{
+            display: fadeInActive2 ? 'block' : 'none',
+          }}
+        >
+          <img
+            src={image}
+            alt=""
+            style={{ width: '100%' }}
+          />
+        </FadeInArticle>
         <SaveTheDate zoom={resize} bottom="-80px" left="-80px" />
       </div>
 
