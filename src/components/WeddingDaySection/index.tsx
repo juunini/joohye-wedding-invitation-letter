@@ -82,13 +82,12 @@ export default function WeddingDaySection(): JSX.Element {
           fontWeight: 300,
         }}
       >
-        김연한
-        <span style={{ margin: `0 ${4 * resize}px` }}>·</span>
-        심태숙
-        &nbsp;&nbsp;&nbsp;
-        <small style={{ fontSize: `${resize * 24}px`, marginRight: `${4 * resize}px` }}>차남</small>
-        {' '}
-        <strong style={{ fontWeight: 400, flex: 1 }}>김철수</strong>
+        <span style={{ flex: 1 }}>
+          신랑
+          {' '}
+          <strong style={{ fontWeight: 400, flex: 1 }}>김철수</strong>
+          에게 연락하기
+        </span>
 
         <a href="tel:01090216669">
           <img src={callIcon} alt="전화하기" style={{ width: `${resize * 34}px`, marginRight: `${resize * 30}px` }} />
@@ -108,13 +107,12 @@ export default function WeddingDaySection(): JSX.Element {
           fontWeight: 300,
         }}
       >
-        양병록
-        <span style={{ margin: `0 ${4 * resize}px` }}>·</span>
-        전영식
-        &nbsp;&nbsp;&nbsp;
-        <small style={{ fontSize: `${resize * 24}px`, marginRight: `${4 * resize}px` }}>차녀</small>
-        {' '}
-        <strong style={{ fontWeight: 400, flex: 1 }}>양주혜</strong>
+        <span style={{ flex: 1 }}>
+          신부
+          {' '}
+          <strong style={{ fontWeight: 400 }}>양주혜</strong>
+          에게 연락하기
+        </span>
 
         <a href="tel:01055590402">
           <img src={callIcon} alt="전화하기" style={{ width: `${resize * 34}px`, marginRight: `${resize * 30}px` }} />
