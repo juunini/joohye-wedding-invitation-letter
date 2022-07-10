@@ -48,11 +48,19 @@ export default function WeddingDaySection(): JSX.Element {
       <TextType4
         fontSize={`${resize * 26}px`}
         style={{
+          display: 'inline-block',
+          height: `${resize * 36}px`,
+          marginBottom: `${resize * 10}px`,
           fontWeight: 500,
-          textDecoration: 'underline',
+          borderBottom: '1px solid #000',
         }}
       >
-        2022.10.03 MON(개천절) 14:00
+        2022.10.03 MON
+        <span style={{ fontFamily: 'Noto Sans KR', fontWeight: 300 }}>
+          (개천절)
+        </span>
+        {' '}
+        14:00
       </TextType4>
       <TextType3
         fontSize={`${resize * 26}px`}
@@ -66,14 +74,16 @@ export default function WeddingDaySection(): JSX.Element {
         style={{
           display: 'flex',
           flexDirection: 'row',
-          alignItems: 'center',
+          alignItems: 'flex-end',
           marginBottom: `${resize * 30}px`,
           fontWeight: 300,
         }}
       >
-        김연한 · 심태숙
+        김연한
+        <span style={{ margin: `0 ${4 * resize}px` }}>·</span>
+        심태숙
         &nbsp;&nbsp;&nbsp;
-        <small style={{ fontSize: `${resize * 24}px` }}>차남</small>
+        <small style={{ fontSize: `${resize * 24}px`, marginRight: `${4 * resize}px` }}>차남</small>
         {' '}
         <strong style={{ fontWeight: 400, flex: 1 }}>김철수</strong>
 
@@ -86,14 +96,16 @@ export default function WeddingDaySection(): JSX.Element {
         style={{
           display: 'flex',
           flexDirection: 'row',
-          alignItems: 'center',
+          alignItems: 'flex-end',
           marginBottom: `${resize * 40}px`,
           fontWeight: 300,
         }}
       >
-        양병록 · 전영식
+        양병록
+        <span style={{ margin: `0 ${4 * resize}px` }}>·</span>
+        전영식
         &nbsp;&nbsp;&nbsp;
-        <small style={{ fontSize: `${resize * 24}px` }}>차녀</small>
+        <small style={{ fontSize: `${resize * 24}px`, marginRight: `${4 * resize}px` }}>차녀</small>
         {' '}
         <strong style={{ fontWeight: 400, flex: 1 }}>양주혜</strong>
 

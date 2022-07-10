@@ -67,6 +67,7 @@ export default function Section5(): JSX.Element {
 
       <TextType3
         fontSize={`${resize * 26}px`}
+        fontWeight={300}
         style={{
           textAlign: 'center',
         }}
