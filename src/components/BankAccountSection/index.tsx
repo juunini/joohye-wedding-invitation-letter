@@ -81,7 +81,7 @@ export default function BankAccountSection(): JSX.Element {
             김철수
           </TextType3>
           <CopyToClipboard
-            text="110-352-575352"
+            text="110352575352"
             onCopy={() => {
               setTooltipOpen1(true);
 
@@ -111,7 +111,7 @@ export default function BankAccountSection(): JSX.Element {
             김연한
           </TextType3>
           <CopyToClipboard
-            text="804-01-0114-451"
+            text="804010114451"
             onCopy={() => {
               setTooltipOpen2(true);
 
@@ -172,7 +172,7 @@ export default function BankAccountSection(): JSX.Element {
             양주혜
           </TextType3>
           <CopyToClipboard
-            text="1002-831-277797"
+            text="1002831277797"
             onCopy={() => {
               setTooltipOpen3(true);
 
@@ -202,7 +202,7 @@ export default function BankAccountSection(): JSX.Element {
             양병록
           </TextType3>
           <CopyToClipboard
-            text="110-492-910415"
+            text="110492910415"
             onCopy={() => {
               setTooltipOpen4(true);
 

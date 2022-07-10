@@ -87,8 +87,12 @@ export default function WeddingDaySection(): JSX.Element {
         {' '}
         <strong style={{ fontWeight: 400, flex: 1 }}>김철수</strong>
 
-        <img src={callIcon} alt="전화하기" style={{ width: `${resize * 34}px`, marginRight: `${resize * 30}px` }} />
-        <img src={talkIcon} alt="문자하기" style={{ width: `${resize * 44}px` }} />
+        <a href="tel:01090216669">
+          <img src={callIcon} alt="전화하기" style={{ width: `${resize * 34}px`, marginRight: `${resize * 30}px` }} />
+        </a>
+        <a href="sms:01090216669">
+          <img src={talkIcon} alt="문자하기" style={{ width: `${resize * 44}px` }} />
+        </a>
       </TextType3>
 
       <TextType3
@@ -109,8 +113,12 @@ export default function WeddingDaySection(): JSX.Element {
         {' '}
         <strong style={{ fontWeight: 400, flex: 1 }}>양주혜</strong>
 
-        <img src={callIcon} alt="전화하기" style={{ width: `${resize * 34}px`, marginRight: `${resize * 30}px` }} />
-        <img src={talkIcon} alt="문자하기" style={{ width: `${resize * 44}px` }} />
+        <a href="tel:01055590402">
+          <img src={callIcon} alt="전화하기" style={{ width: `${resize * 34}px`, marginRight: `${resize * 30}px` }} />
+        </a>
+        <a href="sms:01055590402">
+          <img src={talkIcon} alt="문자하기" style={{ width: `${resize * 44}px` }} />
+        </a>
       </TextType3>
 
       <Button
