@@ -54,7 +54,7 @@ export default function AddressSection(): JSX.Element {
     const map = new naver.maps.Map('map', {
       // @ts-ignore
       center: position,
-      zoom: 19,
+      zoom: 16,
     });
 
     // @ts-ignore
