@@ -42,8 +42,8 @@ export default function Section6(): JSX.Element {
         <TextType1
           fontSize={`${resize * 20}px`}
           rotate={90}
-          top={`${resize * 100}px`}
-          right={`${resize * -150}px`}
+          top={`${resize * 120}px`}
+          right={`${resize * -160}px`}
         >
           CONCEPT 3 -
           {' '}
@@ -70,7 +70,7 @@ export default function Section6(): JSX.Element {
         <TextType1
           fontSize={`${resize * 18}px`}
           rotate={-90}
-          top={`${resize * 202}px`}
+          top={`${resize * 220}px`}
           left={`${resize * -300}px`}
           style={{ textAlign: 'right' }}
         >
