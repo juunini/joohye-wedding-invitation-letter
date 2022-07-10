@@ -12,27 +12,9 @@ interface Props {
 }
 
 export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
-  const [zoom, setZoom] = useState<number>(1);
-  const [marginBottom, setMarginBottom] = useState<number>(160);
-  const [top, setTop] = useState<number>(105);
-  const [left, setLeft] = useState<number>(380);
-  const [width, setWidth] = useState<number>(450);
-  const [height, setHeight] = useState<number>(560);
-  const [fontSize, setFontSize] = useState<number>(20);
-  const [letterSpacing, setLetterSpacing] = useState<number>(5);
+  const [resize, setResize] = useState<number>(1);
 
-  function handleResize(): void {
-    const clientWidth = getClientWidth();
-
-    setMarginBottom((160 * clientWidth) / 720);
-    setZoom(clientWidth / 720);
-    setTop((105 * clientWidth) / 720);
-    setLeft((380 * clientWidth) / 720);
-    setWidth((450 * clientWidth) / 720);
-    setHeight((560 * clientWidth) / 720);
-    setFontSize((20 * clientWidth) / 720);
-    setLetterSpacing((5 * clientWidth) / 720);
-  }
+  const handleResize = (): void => setResize(getClientWidth() / 720);
 
   useEffect(() => {
     handleResize();
@@ -41,37 +23,37 @@ export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
 
   return (
     <Section
-      width={width}
-      height={height}
-      marginBottom={marginBottom}
+      width={450 * resize}
+      height={560 * resize}
+      marginBottom={160 * resize}
     >
       <FadeInArticle direction="left">
         <img
           style={{
-            width: `${width}px`,
+            width: `${450 * resize}px`,
           }}
           src={image}
           alt=""
         />
 
         <TextType1
-          top={`${top}px`}
-          left={`${left}px`}
-          fontSize={`${fontSize}px`}
+          top={`${105 * resize}px`}
+          left={`${370 * resize}px`}
+          fontSize={`${20 * resize}px`}
           rotate={90}
         >
           CONCEPT 1 -
           {' '}
           <TextType2
-            fontSize={`${(fontSize * 16) / 20}px`}
-            letterSpacing={`${letterSpacing}px`}
+            fontSize={`${16 * resize}px`}
+            letterSpacing={`${5 * resize}px`}
           >
             Graceful
           </TextType2>
         </TextType1>
       </FadeInArticle>
 
-      <SaveTheDate zoom={zoom} bottom="-80px" right="-80px" />
+      <SaveTheDate zoom={resize} bottom="-80px" right="-80px" />
     </Section>
   );
 }

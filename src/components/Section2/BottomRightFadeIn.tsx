@@ -11,20 +11,9 @@ interface Props {
 }
 
 export default function BottomRightFadeIn({ getClientWidth }: Props): JSX.Element {
-  const [top, setTop] = useState<number>(140);
-  const [right, setRight] = useState<number>(340);
-  const [width, setWidth] = useState<number>(450);
-  const [height, setHeight] = useState<number>(560);
-  const [fontSize, setFontSize] = useState<number>(20);
+  const [resize, setResize] = useState<number>(1);
 
-  function handleResize(): void {
-    const clientWidth = getClientWidth();
-    setTop((140 * clientWidth) / 720);
-    setRight((340 * clientWidth) / 720);
-    setWidth((450 * clientWidth) / 720);
-    setHeight((560 * clientWidth) / 720);
-    setFontSize((20 * clientWidth) / 720);
-  }
+  const handleResize = (): void => setResize(getClientWidth() / 720);
 
   useEffect(() => {
     handleResize();
@@ -33,8 +22,8 @@ export default function BottomRightFadeIn({ getClientWidth }: Props): JSX.Elemen
 
   return (
     <Section
-      width={width}
-      height={height}
+      width={resize * 450}
+      height={resize * 560}
       marginBottom={0}
       style={{
         marginLeft: 'auto',
@@ -45,20 +34,20 @@ export default function BottomRightFadeIn({ getClientWidth }: Props): JSX.Elemen
           src={image}
           alt=""
           style={{
-            width: `${width}px`,
+            width: '100%',
           }}
         />
 
         <TextType1
-          top={`${top}px`}
-          right={`${right}px`}
-          fontSize={`${fontSize}px`}
+          top={`${resize * 190}px`}
+          right={`${resize * 300}px`}
+          fontSize={`${resize * 20}px`}
           rotate={-90}
           style={{ textAlign: 'right' }}
         >
-          Requesst the honor of your presence
+          REQUEST THE HONOR OF YOUR PRESENCE
           <br />
-          at the celebration of our union
+          AT THE CELEBRATION OF OUR UNION
         </TextType1>
       </FadeInArticle>
     </Section>
