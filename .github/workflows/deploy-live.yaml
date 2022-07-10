@@ -17,11 +17,11 @@ jobs:
       - name: Install and Build
         uses: actions/setup-node@v2
       - run: yarn
-      - run: yarn build --base=/joohye-wedding-invitation-letter
+      - run: yarn build
         env:
           CI: true
           DEPLOY_TARGET: gh-pages
-          VITE_BASENAME: https://juunini.github.io/joohye-wedding-invitation-letter
+          VITE_BASENAME: https://csjh221003.com
       - run: touch dist/.nojekyll
 
       - name: Deploy
