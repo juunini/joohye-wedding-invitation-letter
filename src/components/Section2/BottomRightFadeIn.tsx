@@ -12,12 +12,21 @@ interface Props {
 
 export default function BottomRightFadeIn({ getClientWidth }: Props): JSX.Element {
   const [resize, setResize] = useState<number>(1);
+  const [fadeInActive, setFadeInActive] = useState<boolean>(false);
 
   const handleResize = (): void => setResize(getClientWidth() / 720);
 
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', () => handleResize());
+    window.addEventListener('scroll', () => {
+      if (window.scrollY <= 1000) {
+        setFadeInActive(false);
+      }
+      if (window.scrollY > 1000) {
+        setFadeInActive(true);
+      }
+    });
   }, []);
 
   return (
@@ -29,7 +38,13 @@ export default function BottomRightFadeIn({ getClientWidth }: Props): JSX.Elemen
         marginLeft: 'auto',
       }}
     >
-      <FadeInArticle direction="right">
+      <FadeInArticle
+        direction="right"
+        active={fadeInActive}
+        style={{
+          display: fadeInActive ? 'block' : 'none',
+        }}
+      >
         <img
           src={image}
           alt=""

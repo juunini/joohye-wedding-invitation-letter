@@ -13,12 +13,20 @@ interface Props {
 
 export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
   const [resize, setResize] = useState<number>(1);
+  const [fadeInActive, setFadeInActive] = useState<boolean>(false);
 
   const handleResize = (): void => setResize(getClientWidth() / 720);
-
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', () => handleResize());
+    window.addEventListener('scroll', () => {
+      if (window.scrollY <= 400) {
+        setFadeInActive(false);
+      }
+      if (window.scrollY > 400) {
+        setFadeInActive(true);
+      }
+    });
   }, []);
 
   return (
@@ -27,7 +35,13 @@ export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
       height={560 * resize}
       marginBottom={160 * resize}
     >
-      <FadeInArticle direction="left">
+      <FadeInArticle
+        direction="left"
+        active={fadeInActive}
+        style={{
+          display: fadeInActive ? 'block' : 'none',
+        }}
+      >
         <img
           style={{
             width: `${450 * resize}px`,

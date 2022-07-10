@@ -14,12 +14,21 @@ export default function Section3(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
   const [resize, setResize] = useState<number>(1);
+  const [fadeInActive, setFadeInActive] = useState<boolean>(false);
 
   const handleResize = (): void => setResize(ref.current!.clientWidth / 720);
 
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', () => handleResize());
+    window.addEventListener('scroll', () => {
+      if (window.scrollY <= 2800) {
+        setFadeInActive(false);
+      }
+      if (window.scrollY > 2800) {
+        setFadeInActive(true);
+      }
+    });
   }, []);
 
   return (
@@ -74,8 +83,10 @@ export default function Section3(): JSX.Element {
             direction="top"
             from="20%"
             to="0"
+            active={fadeInActive}
             style={{
               width: '100%',
+              display: fadeInActive ? 'block' : 'none',
             }}
           >
             <img

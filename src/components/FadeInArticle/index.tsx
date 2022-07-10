@@ -8,11 +8,16 @@ interface Props {
   duration?: number;
   from?: string;
   to?: string;
+  active?: boolean;
 }
 
 export default styled.article(({
-  direction, duration = 1.5, from = '-20%', to = '0',
+  direction,
+  duration = 1.5,
+  from = '-20%',
+  to = '0',
+  active = false,
 }: Props) => ({
   position: 'absolute',
-  animation: `${fadeInAnimation(direction, from, to)} ${duration}s ease-out 1`,
+  animation: active ? `${fadeInAnimation(direction, from, to)} ${duration}s ease-out 1` : 'none',
 }));
