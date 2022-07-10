@@ -21,7 +21,7 @@ export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
     window.addEventListener('resize', () => handleResize());
 
     const isMobileSize = window.innerWidth < 720;
-    const fadeInPosition = isMobileSize ? 200 : 200;
+    const fadeInPosition = isMobileSize ? 120 : 200;
 
     window.addEventListener('scroll', () => {
       if (window.scrollY <= fadeInPosition) {

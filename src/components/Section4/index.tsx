@@ -22,7 +22,7 @@ export default function Section4(): JSX.Element {
     window.addEventListener('resize', () => handleResize());
 
     const isMobileSize = window.innerWidth < 720;
-    const fadeInPosition = isMobileSize ? 1800 : 3200;
+    const fadeInPosition = isMobileSize ? 1500 : 3200;
 
     window.addEventListener('scroll', () => {
       if (window.scrollY <= fadeInPosition) {

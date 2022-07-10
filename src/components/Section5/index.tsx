@@ -25,8 +25,8 @@ export default function Section5(): JSX.Element {
     window.addEventListener('resize', () => handleResize());
 
     const isMobileSize = window.innerWidth < 720;
-    const fadeInPosition1 = isMobileSize ? 2250 : 4000;
-    const fadeInPosition2 = isMobileSize ? 2380 : 4400;
+    const fadeInPosition1 = isMobileSize ? 1750 : 4000;
+    const fadeInPosition2 = isMobileSize ? 1900 : 4400;
 
     window.addEventListener('scroll', () => {
       if (window.scrollY <= fadeInPosition1) {

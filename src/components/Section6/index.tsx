@@ -24,8 +24,8 @@ export default function Section6(): JSX.Element {
     handleResize();
     window.addEventListener('resize', () => handleResize());
 
-    const fadeInPosition1 = isMobileSize ? 2850 : 5400;
-    const fadeInPosition2 = isMobileSize ? 3300 : 6000;
+    const fadeInPosition1 = isMobileSize ? 2350 : 5400;
+    const fadeInPosition2 = isMobileSize ? 2600 : 6000;
 
     window.addEventListener('scroll', () => {
       setIsMobileSize(window.innerWidth < 720);

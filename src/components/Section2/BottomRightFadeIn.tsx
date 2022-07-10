@@ -21,7 +21,7 @@ export default function BottomRightFadeIn({ getClientWidth }: Props): JSX.Elemen
     window.addEventListener('resize', () => handleResize());
 
     const isMobileSize = window.innerWidth < 720;
-    const fadeInPosition = isMobileSize ? 560 : 580;
+    const fadeInPosition = isMobileSize ? 300 : 580;
 
     window.addEventListener('scroll', () => {
       if (window.scrollY <= fadeInPosition) {
