@@ -1,50 +1,25 @@
-import { useState } from 'react';
-import logo from './logo.svg';
+import AddressSection from './components/AddressSection';
+import BankAccountSection from './components/BankAccountSection';
+import Section1 from './components/Section1';
+import Section2 from './components/Section2';
+import Section3 from './components/Section3';
+import Section4 from './components/Section4';
+import Section5 from './components/Section5';
+import Section6 from './components/Section6';
+import WeddingDaySection from './components/WeddingDaySection';
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export default function App(): JSX.Element {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((prev) => prev + 1)}>
-            count is:
-            {' '}
-            {count}
-          </button>
-        </p>
-        <p>
-          Edit
-          {' '}
-          <code>App.tsx</code>
-          {' '}
-          and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    <>
+      <Section1 />
+      <Section2 />
+      <Section3 />
+      <Section4 />
+      <Section5 />
+      <Section6 />
+      <WeddingDaySection />
+      <AddressSection />
+      <BankAccountSection />
+    </>
   );
 }
-
-export default App;

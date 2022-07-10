@@ -5,6 +5,9 @@ import {
   TextType1,
 } from '../Texts';
 
+import image1 from './area4_pic3.png';
+import image2 from './area4_pic4.png';
+
 export default function Section4(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
@@ -24,32 +27,29 @@ export default function Section4(): JSX.Element {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        marginBottom: `${resize * 160}px`,
       }}
     >
-      <div
+      <img
+        src={image1}
+        alt=""
         style={{
-          width: '450px',
-          height: '560px',
-          border: '1px solid black',
+          width: `${resize * 450}px`,
         }}
-      >
-        image
-      </div>
+      />
 
       <div
         style={{
           position: 'relative',
         }}
       >
-        <div
+        <img
+          src={image2}
+          alt=""
           style={{
-            width: '190px',
-            height: '220px',
-            border: '1px solid black',
+            width: `${resize * 190}px`,
           }}
-        >
-          image
-        </div>
+        />
         <TextType1
           fontSize={`${resize * 18}px`}
           rotate={90}

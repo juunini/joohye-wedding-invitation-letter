@@ -7,6 +7,9 @@ import {
   Title, TextType1, TextType2, SubTitle,
 } from '../Texts';
 
+import image1 from './area4_pic1.png';
+import image2 from './area4_pic2.png';
+
 export default function Section3(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
@@ -22,7 +25,10 @@ export default function Section3(): JSX.Element {
   return (
     <Section
       ref={ref}
-      style={{ textAlign: 'center' }}
+      style={{
+        textAlign: 'center',
+        marginBottom: `${resize * 160}px`,
+      }}
     >
       <Title fontSize={`${resize * 94}px`}>Since 2010</Title>
       <SubTitle fontSize={`${resize * 26}px`} style={{ marginBottom: `${resize * 160}px` }}>
@@ -31,16 +37,14 @@ export default function Section3(): JSX.Element {
         철수와 주혜 드디어 결혼합니다.
       </SubTitle>
 
-      <div
+      <img
+        src={image1}
+        alt=""
         style={{
           width: '100%',
-          height: `${resize * 870}px`,
           marginBottom: `${-(resize * 160)}px`,
-          border: '1px solid black',
         }}
-      >
-        image
-      </div>
+      />
 
       <div
         style={{
@@ -63,11 +67,13 @@ export default function Section3(): JSX.Element {
             to="0"
             style={{
               width: '100%',
-              height: `${resize * 560}px`,
-              border: '1px solid black',
             }}
           >
-            image
+            <img
+              src={image2}
+              alt=""
+              style={{ width: '100%' }}
+            />
           </FadeInArticle>
         </div>
 

@@ -8,7 +8,7 @@ import {
 } from '../Texts';
 import { CopyButton } from '../Buttons';
 
-export default function BackAccountSection(): JSX.Element {
+export default function BankAccountSection(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
   const [resize, setResize] = useState<number>(1);
@@ -24,7 +24,8 @@ export default function BackAccountSection(): JSX.Element {
     <Section
       ref={ref}
       style={{
-        padding: `0 ${resize * 90}px`,
+        padding: `${resize * 100}px ${resize * 90}px`,
+        backgroundColor: '#f6f6f6',
       }}
     >
       <TextType3

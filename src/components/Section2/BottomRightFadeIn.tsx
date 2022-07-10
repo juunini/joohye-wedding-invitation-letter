@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 
 import FadeInArticle from '../FadeInArticle';
 import Section from './Section';
-import MockImage from './MockImage';
 import { TextType1 } from '../Texts';
+
+import image from './area2_pic2.png';
 
 interface Props {
   getClientWidth: () => number;
@@ -40,12 +41,13 @@ export default function BottomRightFadeIn({ getClientWidth }: Props): JSX.Elemen
       }}
     >
       <FadeInArticle direction="right">
-        <MockImage
-          width={`${width}px`}
-          height={`${height}px`}
-        >
-          image
-        </MockImage>
+        <img
+          src={image}
+          alt=""
+          style={{
+            width: `${width}px`,
+          }}
+        />
 
         <TextType1
           top={`${top}px`}

@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 import FadeInArticle from '../FadeInArticle';
 import SaveTheDate from '../SaveTheDate';
 import Section from './Section';
-import MockImage from './MockImage';
 import { TextType1, TextType2 } from '../Texts';
+
+import image from './area2_pic1.png';
 
 interface Props {
   getClientWidth: () => number;
@@ -45,12 +46,13 @@ export default function TopLeftFadeIn({ getClientWidth }: Props): JSX.Element {
       marginBottom={marginBottom}
     >
       <FadeInArticle direction="left">
-        <MockImage
-          width={`${width}px`}
-          height={`${height}px`}
-        >
-          image
-        </MockImage>
+        <img
+          style={{
+            width: `${width}px`,
+          }}
+          src={image}
+          alt=""
+        />
 
         <TextType1
           top={`${top}px`}

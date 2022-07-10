@@ -6,6 +6,9 @@ import {
   TextType2,
 } from '../Texts';
 
+import image1 from './area5_pic2.png';
+import image2 from './area5_pic3.png';
+
 export default function Section6(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
@@ -21,18 +24,21 @@ export default function Section6(): JSX.Element {
   return (
     <Section
       ref={ref}
+      style={{ marginBottom: `${resize * 160}px` }}
     >
       <div
         style={{
           position: 'relative',
           width: `${resize * 540}px`,
-          height: `${resize * 670}px`,
           marginRight: 'auto',
           marginBottom: `${resize * 160}px`,
-          border: '1px solid black',
         }}
       >
-        image
+        <img
+          src={image1}
+          alt=""
+          style={{ width: '100%' }}
+        />
         <TextType1
           fontSize={`${resize * 20}px`}
           rotate={90}
@@ -53,12 +59,14 @@ export default function Section6(): JSX.Element {
         style={{
           position: 'relative',
           width: `${resize * 540}px`,
-          height: `${resize * 670}px`,
           marginLeft: 'auto',
-          border: '1px solid black',
         }}
       >
-        image
+        <img
+          src={image2}
+          alt=""
+          style={{ width: '100%' }}
+        />
         <TextType1
           fontSize={`${resize * 18}px`}
           rotate={-90}

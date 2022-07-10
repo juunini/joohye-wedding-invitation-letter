@@ -8,6 +8,8 @@ import {
   OutlineText,
 } from '../Texts';
 
+import image from './area5_pic1.png';
+
 export default function Section5(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
@@ -23,11 +25,14 @@ export default function Section5(): JSX.Element {
   return (
     <Section
       ref={ref}
+      style={{ marginBottom: `${resize * 160}px` }}
     >
       <Title
         fontSize={`${resize * 94}px`}
         lineHeight="1"
         style={{
+          position: 'relative',
+          zIndex: 2,
           marginBottom: `${resize * -55}px`,
           paddingLeft: `${resize * 90}px`,
           letterSpacing: `${resize * -1}px`,
@@ -48,13 +53,15 @@ export default function Section5(): JSX.Element {
         style={{
           position: 'relative',
           width: `${resize * 540}px`,
-          height: `${resize * 670}px`,
           marginLeft: 'auto',
           marginBottom: `${resize * 160}px`,
-          border: '1px solid black',
         }}
       >
-        image
+        <img
+          src={image}
+          alt=""
+          style={{ width: '100%' }}
+        />
         <SaveTheDate zoom={resize} bottom="-80px" left="-80px" />
       </div>
 

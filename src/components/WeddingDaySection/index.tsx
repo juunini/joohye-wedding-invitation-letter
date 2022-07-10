@@ -8,6 +8,9 @@ import {
   Title,
 } from '../Texts';
 
+import callIcon from './call.png';
+import talkIcon from './talk.png';
+
 export default function WeddingDaySection(): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
@@ -25,6 +28,7 @@ export default function WeddingDaySection(): JSX.Element {
       ref={ref}
       style={{
         padding: `0 ${resize * 90}px`,
+        marginBottom: `${resize * 160}px`,
       }}
     >
       <Title
@@ -59,24 +63,42 @@ export default function WeddingDaySection(): JSX.Element {
 
       <TextType3
         fontSize={`${resize * 30}px`}
-        style={{ marginBottom: `${resize * 30}px`, fontWeight: 300 }}
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          marginBottom: `${resize * 30}px`,
+          fontWeight: 300,
+        }}
       >
         김연한 · 심태숙
         &nbsp;&nbsp;&nbsp;
         <small style={{ fontSize: `${resize * 24}px` }}>차남</small>
         {' '}
-        <strong style={{ fontWeight: 400 }}>김철수</strong>
+        <strong style={{ fontWeight: 400, flex: 1 }}>김철수</strong>
+
+        <img src={callIcon} alt="전화하기" style={{ width: `${resize * 34}px`, marginRight: `${resize * 30}px` }} />
+        <img src={talkIcon} alt="문자하기" style={{ width: `${resize * 44}px` }} />
       </TextType3>
 
       <TextType3
         fontSize={`${resize * 30}px`}
-        style={{ marginBottom: `${resize * 40}px`, fontWeight: 300 }}
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          marginBottom: `${resize * 40}px`,
+          fontWeight: 300,
+        }}
       >
         양병록 · 전영식
         &nbsp;&nbsp;&nbsp;
         <small style={{ fontSize: `${resize * 24}px` }}>차녀</small>
         {' '}
-        <strong style={{ fontWeight: 400 }}>양주혜</strong>
+        <strong style={{ fontWeight: 400, flex: 1 }}>양주혜</strong>
+
+        <img src={callIcon} alt="전화하기" style={{ width: `${resize * 34}px`, marginRight: `${resize * 30}px` }} />
+        <img src={talkIcon} alt="문자하기" style={{ width: `${resize * 44}px` }} />
       </TextType3>
 
       <Button

@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 
-import image from './section1.jpg';
+import image from './area1_pic1.png';
 import Title from './Title';
 import Name from './Name';
 import Date from './Date';
 import Address from './Address';
 import SaveTheDate from '../SaveTheDate';
 import Section from '../Section';
+import { OutlineText } from '../Texts';
 
 interface Props {
   title?: {
@@ -53,6 +54,8 @@ export default function Section1({
 }: Props): JSX.Element {
   const ref = useRef<HTMLElement>(null);
 
+  const [resize, setResize] = useState<number>(1);
+
   const [titleFontSize, setTitleFontSize] = useState(`${title.fontSize}px`);
   const [nameFontSize, setNameFontSize] = useState(`${name.fontSize}px`);
   const [dateFontSize, setDateFontSize] = useState(`${date.fontSize}px`);
@@ -65,6 +68,7 @@ export default function Section1({
     setDateFontSize(`${(date.fontSize / 720) * ref.current!.clientWidth}px`);
     setAddressFontSize(`${(address.fontSize / 720) * ref.current!.clientWidth}px`);
     setZoom(ref.current!.clientWidth / 720);
+    setResize(ref.current!.clientWidth / 720);
   }
 
   useEffect(() => {
@@ -73,7 +77,7 @@ export default function Section1({
   }, []);
 
   return (
-    <Section ref={ref}>
+    <Section ref={ref} style={{ paddingTop: `${resize * 40}px`, marginBottom: `${resize * 160}px` }}>
       <SaveTheDate top="40px" right="40px" zoom={zoom} />
 
       <Title
@@ -85,9 +89,11 @@ export default function Section1({
           marginBottom: 'calc(-185 / 720 * 100%)',
         }}
       >
-        We
-        <br />
-        are
+        <OutlineText>
+          We
+          <br />
+          are
+        </OutlineText>
         <br />
         getting
         <br />
