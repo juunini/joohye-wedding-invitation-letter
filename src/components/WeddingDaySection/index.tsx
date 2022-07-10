@@ -124,6 +124,8 @@ export default function WeddingDaySection(): JSX.Element {
           fontSize: `${resize * 24}px`,
           fontWeight: 300,
           backgroundColor: '#000',
+          borderRadius: 0,
+          boxShadow: 'none',
         }}
       >
         혼주에게 연락하기
