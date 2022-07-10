@@ -76,7 +76,7 @@ export default function AddressSection(): JSX.Element {
       ref={ref}
       style={{ textAlign: 'center' }}
     >
-      <Title fontSize={`${resize * 40}px`} marginBottom={`${resize * 40}px`}>
+      <Title fontSize={`${resize * 40}px`} marginBottom={`${resize * 40}px`} style={{ fontWeight: 500 }}>
         오시는 길
         <CopyButton
           type="button"

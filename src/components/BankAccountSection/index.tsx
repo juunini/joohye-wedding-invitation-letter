@@ -39,12 +39,19 @@ export default function BankAccountSection(): JSX.Element {
         마음을 전하는 곳
       </TextType3>
 
-      <Accordion style={{ marginBottom: `${resize * 20}px`, color: '#000', borderRadius: '20px' }}>
+      <Accordion
+        style={{
+          marginBottom: `${resize * 20}px`,
+          color: '#000',
+          borderRadius: '30px',
+          boxShadow: 'none',
+        }}
+      >
         <AccordionSummary
           expandIcon={<ArrowDropDownIcon style={{ fill: '#000', fontSize: `${resize * 20}px`, zoom: 2 }} />}
           style={{
             padding: `${resize * 20}px ${resize * 30}px`,
-            borderRadius: '20px',
+            borderRadius: '30px',
           }}
         >
           <TextType3
@@ -119,7 +126,8 @@ export default function BankAccountSection(): JSX.Element {
       <Accordion
         style={{
           color: '#000',
-          borderRadius: '20px',
+          borderRadius: '30px',
+          boxShadow: 'none',
         }}
         sx={{
           '&:before': {
