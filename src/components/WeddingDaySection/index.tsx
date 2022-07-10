@@ -24,10 +24,10 @@ export default function WeddingDaySection(): JSX.Element {
     handleResize();
     window.addEventListener('resize', () => handleResize());
     window.addEventListener('scroll', () => {
-      if (window.scrollY <= 7600) {
+      if (window.scrollY <= 7200) {
         setFadeInActive(false);
       }
-      if (window.scrollY > 7600) {
+      if (window.scrollY > 7200) {
         setFadeInActive(true);
       }
     });
@@ -47,6 +47,7 @@ export default function WeddingDaySection(): JSX.Element {
         active={fadeInActive}
         style={{
           display: fadeInActive ? 'block' : 'none',
+          width: `${resize * (720 - 90 - 90)}px`,
         }}
       >
         <Title
