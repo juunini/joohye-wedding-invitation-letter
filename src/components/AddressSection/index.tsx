@@ -105,6 +105,13 @@ export default function AddressSection(): JSX.Element {
         </CopyToClipboard>
       </Title>
 
+      <P fontSize={`${resize * 30}px`} marginBottom={`${resize * 10}px`}>
+        서울특별시 양천구 목1동 오목로 344
+      </P>
+      <P fontSize={`${resize * 24}px`} marginBottom={`${resize * 50}px`}>
+        로프트가든344, 10층 메인홀
+      </P>
+
       <div id="map" style={{ marginBottom: `${resize * 50}px`, height: `${resize * 350}px` }}>지도</div>
 
       <H4 fontSize={`${resize * 26}px`} marginBottom={`${resize * 10}px`}>
